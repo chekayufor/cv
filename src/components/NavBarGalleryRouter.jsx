@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo.svg';
+// import logo from '../images/Logo.svg';
 import logo from '../images/kisspng-react-logo-javascript-front-and-back-ends-user-int-5afef575c096e1.8015139215266584217889.png';
 
 function NavBarGalleryRouter() {
