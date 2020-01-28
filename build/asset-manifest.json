@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/static/js/main.94db8582.chunk.js",
+    "main.js.map": "/static/js/main.94db8582.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.8132e4a6.js",
+    "runtime~main.js.map": "/static/js/runtime~main.8132e4a6.js.map",
+    "static/js/2.1808fa4b.chunk.js": "/static/js/2.1808fa4b.chunk.js",
+    "static/js/2.1808fa4b.chunk.js.map": "/static/js/2.1808fa4b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4120bbdbbbf90ed65bbf80b86b7ef6b0.js": "/precache-manifest.4120bbdbbbf90ed65bbf80b86b7ef6b0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/Logo.svg": "/static/media/Logo.ab206d03.svg",
+    "static/media/Octocat.png": "/static/media/Octocat.0ba2aa20.png",
+    "static/media/Screen Shot 2020-01-14 at 13.01.16-fullpage.png": "/static/media/Screen Shot 2020-01-14 at 13.01.16-fullpage.cf7886cd.png",
+    "static/media/Screen Shot 2020-01-14 at 13.20.30-fullpage.png": "/static/media/Screen Shot 2020-01-14 at 13.20.30-fullpage.918309df.png",
+    "static/media/Screen Shot 2020-01-26 at 21.19.53-fullpage.png": "/static/media/Screen Shot 2020-01-26 at 21.19.53-fullpage.9e7e5da6.png",
+    "static/media/Screen Shot 2020-01-27 at 13.33.00-fullpage.png": "/static/media/Screen Shot 2020-01-27 at 13.33.00-fullpage.58611e62.png",
+    "static/media/Screen Shot 2020-01-27 at 13.52.47-fullpage.png": "/static/media/Screen Shot 2020-01-27 at 13.52.47-fullpage.03edc02e.png",
+    "static/media/airbnbSearch.png": "/static/media/airbnbSearch.0c725394.png",
+    "static/media/appointmentbook.png": "/static/media/appointmentbook.47e321ac.png",
+    "static/media/cssTransitionWave.png": "/static/media/cssTransitionWave.c40006f7.png",
+    "static/media/flipCardGame.png": "/static/media/flipCardGame.8e03b04a.png",
+    "static/media/githabclone.png": "/static/media/githabclone.906a0874.png",
+    "static/media/googleMapsExample.png": "/static/media/googleMapsExample.c3c8a21a.png",
+    "static/media/kisspng-react-logo-javascript-front-and-back-ends-user-int-5afef575c096e1.8015139215266584217889.png": "/static/media/kisspng-react-logo-javascript-front-and-back-ends-user-int-5afef575c096e1.8015139215266584217889.d5e08cd1.png",
+    "static/media/myPhoto.png": "/static/media/myPhoto.76e958e4.png",
+    "static/media/robots.png": "/static/media/robots.43947a2e.png",
+    "static/media/tea.jpg": "/static/media/tea.75465cbe.jpg",
+    "static/media/weather.png": "/static/media/weather.c8371833.png",
+    "static/media/youtubeclone.png": "/static/media/youtubeclone.abf4d5d5.png"
+  }
+}
