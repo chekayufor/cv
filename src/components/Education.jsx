@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { CVContext } from "./CV.context";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import { CVContext } from './CV.context';
 
 // import certificatJQuery from "../images/certificatJQuery.jpg";
 // import certificatJS from "../images/certificatJS.jpg";
@@ -19,11 +19,11 @@ const Education = () => {
           <Text>
             Professionally trained Full Stack Developer. I hold a Master's
             degree in Civil Engineering and in Economics. I have extensive
-            experience in project management and employees development and
+            experience in project management and employee development and
             training. Able to lead processes, to sustain and develop
             interpersonal relationships, have a learning, organizational and
-            planning skills. I’m a great self-learner and open minded to new
-            challenges and areas. I’m interested in integrating web development.
+            planning skills. I’m a great self-learner and open-minded to new
+            challenges and areas. Web development is my field of interest.
           </Text>
         </ContentTitle>
 
