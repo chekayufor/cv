@@ -211,7 +211,7 @@ const A = styled.a`
 const Img = styled.img`
   width: 60px;
   height: auto;
-  margin: 20px;
+  /* margin: 20px; */
   @media (min-width: 820px) {
     width: 80px;
   }
