@@ -35,7 +35,6 @@ const Carousel = () => {
           {slidsData.map(({ id, component, img, name, linkCode }) => (
             <Slide key={name}>
               <A target="_blank" href={linkCode}>
-                {component !== null && <Component>{component}</Component>}
                 {img !== null && <Image src={img} />}
                 <SlideTitle>{name}</SlideTitle>
               </A>
@@ -112,7 +111,8 @@ const A = styled.a`
     line-height: 1.8em;
     position: relative;
     justify-self: start;
-    color: #2f0a24;
+    text-decoration:none;
+    /* color: #2f0a24; */
    align-content: center;
    justify-items: center;
    cursor: pointer;
@@ -174,6 +174,9 @@ const BackIcon = styled(FiChevronLeft)`
 `;
 
 const SlideTitle = styled.h2`
+  cursor: pointer;
+  color:#bb73a4;
+  justify-self: center;
   font-size: 1.8rem;
   line-height: 2.6rem;
   bottom: 5.4rem;

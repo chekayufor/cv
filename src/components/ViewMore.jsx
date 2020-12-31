@@ -26,14 +26,31 @@ const Box = styled.div`
   }
 `;
 const StyledLink = styled(Link)`
-  background-color: none;
+  text-transform:uppercase;
+    /* padding:10px 0; */
+    font-size: 1.4rem;
+    position: relative;
+    justify-self: center;
+    align-self: start;
+    font-weight: 400;
+    color: #144dce;
+    font-family: fantasy;
+    text-shadow: 1px -1px black;
+    transition: all 0.2s ease-in-out;
+  /* background-color: none; */
   list-style: none;
   cursor: pointer;
-  color:#bb73a4;
-  justify-self: center;
+  /* color:#bb73a4; */
+  /* justify-self: center; */
   transition: all 0.2s ease-in-out;
   &:hover {
     font-size: scale(1.1);
     transform: scale(1.1);
   }
+  @media (min-width: 1200px) {
+      font-size: 30px;
+      }
+  @media (min-width: 1800px) {
+      font-size: 2.4rem;
+    }
 `;

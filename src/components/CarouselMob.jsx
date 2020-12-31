@@ -19,7 +19,6 @@ const Carousel = () => {
         {slidsData.map(({ id, component, img, name, linkOnline }) => (
           <Slide key={name}>
             <A target="_blank" href={linkOnline}>
-              {component !== null && <Component>{component}</Component>}
               {img !== null && <Image src={img} />}
             </A>
           </Slide>
@@ -63,7 +62,8 @@ const A = styled.a`
     line-height: 1.8em;
     position: relative;
     justify-self: start;
-    color: #2f0a24;
+    text-decoration:none;
+    /* color: #2f0a24; */
     align-content: center;
    justify-items: center;
    cursor: pointer;

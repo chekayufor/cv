@@ -96,9 +96,10 @@ const A = styled.a`
     line-height: 1.8em;
     position: relative;
     justify-self: start;
-    color: #2f0a24;
+    /* color: #2f0a24; */
    align-content: center;
    justify-items: center;
+   text-decoration:none;
    cursor: pointer;
    padding: 0.2rem 0.5rem 0.2rem 0;
 `;
@@ -153,8 +154,12 @@ const BackIcon = styled(FiChevronLeft)`
 `;
 
 const SlideTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   line-height: 2.6rem;
+  list-style: none;
+  cursor: pointer;
+  color:#bb73a4;
+  justify-self: center;
   bottom: 5.4rem;
   text-align: center;
   width: 100%;

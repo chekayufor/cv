@@ -90,6 +90,7 @@ const Slide = styled.div`
 `;
 const A = styled.a`
     font-family: Verdana;
+    text-decoration:none;
     line-height: 1.8em;
     position: relative;
     justify-self: start;
@@ -148,7 +149,10 @@ const BackIcon = styled(FiChevronLeft)`
 `;
 
 const SlideTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color:#bb73a4;
+  justify-self: center;
   line-height: 2.6rem;
   bottom: 5.4rem;
   text-align: center;
