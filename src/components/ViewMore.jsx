@@ -38,8 +38,8 @@ const StyledLink = styled(Link)`
     text-shadow: 1px -1px black;
     transition: all 0.2s ease-in-out;
   /* background-color: none; */
-  list-style: none;
-  cursor: pointer;
+    list-style: none;
+    cursor: pointer;
   /* color:#bb73a4; */
   /* justify-self: center; */
   transition: all 0.2s ease-in-out;
