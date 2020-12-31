@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { CVContext } from "./CV.context";
+import WellcomePic from "../images/45184396a325d2b3248dc9b417a6c460.jpg";
 
 const Wellcome = () => {
   const { myData, descriptionData } = useContext(CVContext);
@@ -39,23 +40,23 @@ const Wellcome = () => {
 export default Wellcome;
 
 const ParallaxBox = styled.div`
-  background-image: url(https://picsum.photos/id/306/1024/768);
+  background-image: url(${WellcomePic});
   position: static;
-  background-color: lightyellow;
-  min-height: 100vh;
-  height: 800px;
+  height: 100vh;
   width: 100%;
+  padding-top:10%;
+  padding-bottom:5%;
   display: grid;
   min-height: auto;
   grid-template-rows: 1fr 2fr 2fr 1fr;
-  grid-template-columns: 1fr fr;
+  grid-template-columns: 3fr 1fr;
   /* Full height */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  @media (min-width: 600px) {
+  @media (min-width: 820px) {
     min-height: 100vh;
   }
   /* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
@@ -64,15 +65,16 @@ const ParallaxBox = styled.div`
   } */
 `;
 const WelcomeMessage = styled.div`
-  font-family: sans-serif;
-  color: #e3d5d5;
+  /* font-family: sans-serif; */
+  font-family: Verdana;
+  color: #bb73a4;
   pointer-events: none;
   position: relative;
   grid-area: 2 / 1 / 2 / 2;
   justify-self: start;
   align-self: start;
   margin: 0 30px;
-  @media (min-width: 600px) {
+  @media (min-width: 820px) {
     grid-area: 1/ 1 / 3 / 2;
     align-self: center;
   }
@@ -99,8 +101,8 @@ const Img = styled.img`
 const H1 = styled.h1`
   /* font-size: 65px; */
   font-size: 30px;
-  font-family: sans-serif;
-  @media (min-width: 600px) {
+  /* font-family: sans-serif; */
+  @media (min-width: 820px) {
     font-size: 55px;
   }
 `;
@@ -118,15 +120,19 @@ const Span2 = styled.span`
   letter-spacing: 0.18em;
 `;
 const Par = styled.div`
+ font-family:Verdana;
+  margin-top:2vh;
   line-height: 1.8em;
   position: relative;
   grid-area: 3 / 1/ 4 / 2;
   justify-self: start;
   align-self: start;
-  color: #e3d5d5;
-  margin: 0 30px;
-  @media (min-width: 600px) {
-    font-size: 2.2rem;
+  color: #2f0a24;
+  margin-left: 30px;
+  font-size: 1.4rem;
+  @media (min-width: 820px) {
+    font-size: 1.8rem;
+    margin-top:5vh;
   }
   @media (min-width: 1800px) {
     font-size: 2.5rem;

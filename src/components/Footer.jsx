@@ -12,23 +12,22 @@ const Footer = React.forwardRef((props, ref) => {
 export default Footer;
 
 const Box = styled.div`
-  display: grid;
+  display: flex;
+  width:100%;
+  align-items:center;
+  justify-content:center;
   min-height: 65px;
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #756c6c;
-  color: #393955;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
-  align-items: end;
-  font-size: 1.4rem;
+  /* background-color: #756c6c; */
+  font-size: 1.6rem;
   font-family: sans-serif;
   padding-bottom: 5px;
-  @media (min-width: 1200px) {
-    font-size: 1.8rem;
+  @media (min-width: 750px) {
+    font-size: 2.2rem;
   }
-  @media (min-width: 1800px) {
+  @media (min-width: 1200px) {
     align-items: center;
     font-size: 2.8rem;
   }
@@ -36,4 +35,6 @@ const Box = styled.div`
 const H4 = styled.h5`
   line-height: 1.6rem;
   text-align: center;
+  /* color:rgb(206, 178, 218); */
+  color:#bb73a4;
 `;

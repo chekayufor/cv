@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { CVContext } from "./CV.context";
+import Pic from '../images/3ea1a985175c31dc9ad204316c32506b.jpg'
 
 const Works = () => {
   const { slidsData } = useContext(CVContext);
 
+  const random = (list) => {
+    return list.sort(() => Math.random() - 0.5)
+}
+
   return (
     <Container>
-      {slidsData.map(({ id, component, img, name, linkCode, linkOnline }) => (
+      {slidsData && random(slidsData).map(({ id, img, name, linkCode, linkOnline }) => (
         <Box key={name}>
           <a target="_blank" href={linkCode}>
-            {component !== null && <Component>{component}</Component>}
             {img !== null && <Image src={img} />}
           </a>
           <Middle>
@@ -30,41 +34,42 @@ const Works = () => {
 export default Works;
 
 const Container = styled.div`
+  width:100%;
+  top:6vh;
   position: relative;
   min-height: 100vh;
-  /* height: 100%; */
-  background-color: rgba(188, 182, 193, 0.7);
   justify-content: center;
-  padding: 2rem;
   display: grid;
   grid-gap: 1rem;
   position: relative;
+  background-image: url(${Pic});
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   @media (min-width: 1034px) {
-    /* height: 100%; */
     grid-template-columns: repeat(2, 1fr);
     grid-auto-flow: dense;
   }
   @media (min-width: 1280px) {
-    /* height: 100%; */
     grid-template-columns: repeat(3, 1fr);
     grid-auto-flow: dense;
   }
 `;
 const Box = styled.div`
-  /* background-color: mediumslateblue; */
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 2.2rem;
   font-family: 700;
   line-height: 2.8rem;
   text-align: center;
-  padding: 1rem 0;
   justify-content: space-around;
   align-self: center;
   transition: all 0.2s ease-in-out;
   margin: 1rem;
   &&:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 const A = styled.a`
@@ -83,20 +88,7 @@ const A = styled.a`
     color: white;
   }
 `;
-const Component = styled.div`
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0.7rem;
-  width: 100%;
-  @media (min-width: 600px) {
-    width: 30rem;
-    height: 20rem;
-  }
-  @media (min-width: 1200px) {
-    width: 100%;
-    height: auto;
-  }
-`;
+
 const Image = styled.img`
   opacity: 1;
   display: block;
@@ -104,9 +96,9 @@ const Image = styled.img`
   height: auto;
   transition: 0.5s ease;
   backface-visibility: hidden;
-  border-radius: 0.3rem;
+  border-radius: 0.7rem;
   ${Box}:hover & {
-    opacity: 0.3;
+    opacity: 0.5;
     border: double 0.1rem #716e75;
   }
   @media (min-width: 600px) {

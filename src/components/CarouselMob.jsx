@@ -5,6 +5,9 @@ import { CVContext } from "./CV.context";
 const Carousel = () => {
   const { slidsData } = useContext(CVContext);
 
+  const random = (list) => {
+    return list.sort(() => Math.random() - 0.5);
+  }
   const handleClick = (e, props) => {
     if (e) e.preventDefault();
     console.log("link was clicked");
@@ -56,16 +59,15 @@ const Slide = styled.div`
   margin: 1px 0 1px 0;
 `;
 const A = styled.a`
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  position: relative;
-  color: white;
-  grid-template-rows: 1fr;
-  grid-template-columns: 100%;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  /* background-color: blue; */
+    font-family: Verdana;
+    line-height: 1.8em;
+    position: relative;
+    justify-self: start;
+    color: #2f0a24;
+    align-content: center;
+   justify-items: center;
+   cursor: pointer;
+   padding: 0.2rem 0.5rem 0.2rem 0;
 `;
 const Component = styled.div`
   object-fit: cover;
@@ -81,7 +83,6 @@ const Component = styled.div`
 const Image = styled.img`
   width: 35rem;
   height: 263px;
-  /* height: 20rem; */
   object-fit: cover;
   object-position: center;
   border-radius: 0.4rem;

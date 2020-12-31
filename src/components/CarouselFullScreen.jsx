@@ -14,6 +14,10 @@ const Carousel = () => {
   const trackWidth = slideWidth * totalItemsNum;
   const maskWidth = slideWidth * thumbsNum - space;
   const lastIndex = -(totalItemsNum - thumbsNum);
+  
+  const random = (list) => {
+    return list.sort(() => Math.random() - 0.5);
+  }
 
   const handleClick = (e, props) => {
     if (e) e.preventDefault();
@@ -61,6 +65,7 @@ export default Carousel;
 
 const Box = styled.div`
   display: none;
+  height:40vh;
   width: 100%;
   height: auto;
   justify-content: start;
@@ -73,6 +78,12 @@ const Box = styled.div`
 `;
 const Mask = styled.div`
   width: ${({ w }) => w}rem;
+  @media (min-width: 1800px) {
+    width: ${({ w }) => w*1.2}rem;
+  }
+  @media (min-width: 2400px) {
+    width: ${({ w }) => w*1.8}rem;
+  }
   overflow: hidden;
 `;
 const SlideContainer = styled.div`
@@ -89,18 +100,23 @@ const Slide = styled.div`
   justify-content: space-between;
   transition: transform 250ms;
   transform: translateX(${({ x }) => x}rem);
+  @media (min-width: 1800px) {
+    width: ${({ w }) => w*1.2}rem;
+  }
+  @media (min-width: 2400px) {
+    width: ${({ w }) => w*1.8}rem;
+  }
 `;
 const A = styled.a`
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  position: relative;
-  color: white;
-  grid-template-rows: 1fr;
-  grid-template-columns: 100%;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem 0.2rem 0;
-  /* background-color: blue; */
+    font-family: Verdana;
+    line-height: 1.8em;
+    position: relative;
+    justify-self: start;
+    color: #2f0a24;
+   align-content: center;
+   justify-items: center;
+   cursor: pointer;
+   padding: 0.2rem 2rem 0.2rem 0;
 `;
 const Component = styled.div`
   object-fit: cover;
@@ -125,30 +141,35 @@ const RoundBtn = styled.div`
   ${({ dir }) => (dir === "next" ? "right" : "left")}: -5rem;
   cursor: pointer;
   border-radius: 50%;
-  background: white;
+  background: #0a1c96;
+  opacity: 0.7;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
-  width: 5rem;
-  height: 5rem;
+  width: 8rem;
+  height: 8rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   display: ${({ visible }) => (visible ? "flex" : "none")};
-  /* @media (min-width: 1800px) {
-    width: 6rem;
-    height: 6rem;
-  } */
+  @media (min-width: 1800px) {
+    ${({ dir }) => (dir === "next" ? "right" : "left")}: -12rem;
+    width: 15rem;
+    height: 15rem;
+  }
 `;
 const NextIcon = styled(FiChevronRight)`
-  color: grey;
-  font-size: 1.8rem;
+  color: white;
+  font-size: 2.4rem;
+  @media (min-width: 1800px) {
+    font-size: 5rem;
+  }
 `;
 
 const BackIcon = styled(FiChevronLeft)`
-  color: grey;
-  font-size: 1.8rem;
+  color: white;
+  font-size: 2.4rem;
   @media (min-width: 1800px) {
-    font-size: 3.2rem;
+    font-size: 5rem;
   }
 `;
 
@@ -162,12 +183,14 @@ const SlideTitle = styled.h2`
 
 const Image = styled.img`
   width: 30rem;
-  height: 20rem;
+  height: 40vh;
   object-fit: cover;
   object-position: center;
   border-radius: 0.3rem;
-  /* @media (min-width: 1800px) {
-    width: 45rem;
-    height: 30rem;
-  } */
+  @media (min-width: 1800px) {
+    width: 50rem;
+  }
+  @media (min-width: 2400px) {
+    width: 80rem;
+  }
 `;

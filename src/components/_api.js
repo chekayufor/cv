@@ -4,7 +4,6 @@ import facebookIcon from "../images/icons8-facebook-48.png";
 import instgramIcon from "../images/icons8-instagram-48.png";
 import linkedinIcon from "../images/icons8-linkedin-48.png";
 import githubIcon from "../images/Octocat.png";
-
 import { NetflixAnimationCard } from "./works.components/NetflixAnimationCard";
 import airbnbSearchPhoto from "../images/airbnbSearch.png";
 import flipCardGame from "../images/flipCardGame.png";
@@ -24,15 +23,16 @@ import test from "../images/Screen Shot 2020-01-14 at 13.20.30-fullpage.png";
 import bottleWithBubble from "../images/Screen Shot 2020-01-26 at 21.19.53-fullpage.png";
 import cactus from "../images/Screen Shot 2020-01-27 at 13.33.00-fullpage.png";
 import sky from "../images/Screen Shot 2020-01-27 at 13.52.47-fullpage.png";
+import prague from "../images/WhatsApp Image 2020-12-30 at 16.16.54.jpeg";
 
 export const CarouselData = [
   {
-    id: 1,
-    component: React.createElement(NetflixAnimationCard, null),
-    img: null,
-    name: "Netflix Animation Card (CSS)",
-    linkOnline: "https://ozb5w.csb.app/",
-    linkCode: "https://codesandbox.io/s/netflix-animation-card-ozb5w"
+    id: 14,
+    component: null,
+    img: test,
+    name: "Test Example",
+    linkOnline: "https://github.com/chekayufor/test",
+    linkCode: "https://brave-banach-ec3d11.netlify.com/"
   },
   {
     id: 2,
@@ -132,20 +132,20 @@ export const CarouselData = [
     linkCode: "https://githab-searchusers.netlify.com"
   },
   {
-    id: 14,
+    id: 1,
     component: null,
-    img: test,
-    name: "Test Example",
-    linkOnline: "https://github.com/chekayufor/test",
-    linkCode: "https://brave-banach-ec3d11.netlify.com/"
+    img: prague,
+    name: "Travel site",
+    linkOnline: "https://inprague.herokuapp.com/",
+    linkCode: "https://github.com/chekayufor/prague"
   },
   {
     id: 15,
     component: null,
     img: bottleWithBubble,
     name: "Bottle With Bubble (CSS)",
-    linkCode: "https://kpp3m.csb.app/",
-    linkOnline: "https://codesandbox.io/s/bottle-with-bubble-kpp3m"
+    linkOnline: "https://kpp3m.csb.app/",
+    linkCode: "https://codesandbox.io/s/bottle-with-bubble-kpp3m"
   },
   {
     id: 16,
@@ -198,7 +198,7 @@ export const PrivateData = {
   img: portfolioImg,
   first_name: "ELENA",
   last_name: "DUBINSKY",
-  specialization: "web developer",
+  specialization: "Project manager",
   email: "dubinsky.cv@gmail.com",
   tel: "+972(58)-7838377",
   country: "ISRAEL"
@@ -206,15 +206,11 @@ export const PrivateData = {
 console.log({ PrivateData });
 
 export const Description = [
-  "Deep knowledge of HTML5, CSS, and JavaScript.",
-  "Knowledge of responsive/mobile web design.",
-  "Experience in building performant websites.",
-  "Experience in React.js, Angular.js, Node.js, Redux.js, Materialize.",
-  "Experience in database analysis.",
-  "Excellent communication skills.",
-  "High self-study abilities.",
-  "Ability to lead tasks independently.",
-  "A “can-do” attitude."
+'I hold a masters degree in Economics and a B.S in Civil Engineering.',
+'I have 10 years expiries in project management and warehouse Logistics.',
+'I have 6 years expiries as a trainer and ERP support.',
+'In the past two years I entered the software development world, graduating SheCodes training and Netcraft Academy’s Full Stack development course.',
+'I am a hardworking, dedicated and loyal employee, combining high self-study abilities, excellent interpersonal skills and a “can-do” attitude.' 
 ];
 
 export const EducationData = [

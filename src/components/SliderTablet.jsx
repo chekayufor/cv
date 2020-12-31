@@ -6,7 +6,9 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 const SliderTablet = () => {
   const { slidsData } = useContext(CVContext);
   // const [thumbWidth, setThumbWidth] = useState(30);
-
+const random = (list) => {
+    return list.sort(() => Math.random() - 0.5);
+  }
   const [index, setIndex] = useState(0);
   const totalItemsNum = slidsData.length;
   const thumbsNum = 1;
@@ -63,7 +65,7 @@ const Box = styled.div`
   align-content: center;
   position: relative;
   grid-area: 2/2/3/3;
-  @media (min-width: 600px) {
+  @media (min-width: 820px) {
     display: grid;
   }
   @media (min-width: 1200px) {
@@ -90,16 +92,15 @@ const Slide = styled.div`
   transform: translateX(${({ x }) => x}rem);
 `;
 const A = styled.a`
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  position: relative;
-  color: white;
-  grid-template-rows: 1fr;
-  grid-template-columns: 100%;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem 0.2rem 0;
-  /* background-color: blue; */
+    font-family: Verdana;
+    line-height: 1.8em;
+    position: relative;
+    justify-self: start;
+    color: #2f0a24;
+   align-content: center;
+   justify-items: center;
+   cursor: pointer;
+   padding: 0.2rem 0.5rem 0.2rem 0;
 `;
 const Component = styled.div`
   object-fit: cover;
@@ -125,8 +126,8 @@ const RoundBtn = styled.div`
   ${({ dir }) => (dir === "next" ? "right" : "left")}: -5rem;
   cursor: pointer;
   border-radius: 50%;
-  background: white;
-  opacity: 0.5;
+  background: #0a1c96;
+  opacity: 0.7;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
   width: 5rem;
   height: 5rem;
@@ -137,12 +138,14 @@ const RoundBtn = styled.div`
   display: ${({ visible }) => (visible ? "flex" : "none")};
 `;
 const NextIcon = styled(FiChevronRight)`
-  color: grey;
+  color: white;
   font-size: 1.8rem;
+  font-weight: 600;
 `;
 
 const BackIcon = styled(FiChevronLeft)`
-  color: grey;
+  color: white;
+  font-weight:600;
   font-size: 1.8rem;
   @media (min-width: 1800px) {
     font-size: 3.2rem;

@@ -50,9 +50,11 @@ const GlobalStyles = createGlobalStyle`
       font-size: 10px;
     }
     body {
+      top: 0;
+      left: 0;
       font-size:1.6rem;
-      background: ${({ pageBg }) => pageBg || "papayawhip"};
-      /* background: linear-gradient(
+      /* background: ${({ pageBg }) => pageBg || "papayawhip"};
+        background: linear-gradient(
         to bottom,
         #ebf2ff 0%,
         #99c0ff 100%

@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 // import { SosialLinksList } from "./_api";
 import { CVContext } from "./CV.context";
+// import Pic from '../images/flowers.png'
+import Pic from '../images/woman-workspace-with-notebook-pink-carnation-flower-on-white-background_46208-102.jpg'
 
 const Sosial = () => {
   const { sosialData, myData } = useContext(CVContext);
@@ -28,7 +30,13 @@ const Sosial = () => {
             </Ul>
           </SosialLinks>
           <Contacts>
-            <Span>Tel: {tel}</Span>
+            <Lang> 
+            <h5>🇮🇱</h5>
+            <h5>🇷🇺</h5>
+            <h5>🇺🇦</h5>
+            <h5>🇺🇸</h5>
+            </Lang>
+            <Span> {tel}</Span>
             <SpanEmail>
               <A href="mailto:{email}?subject=Hello from my CV_site&amp;body=Please write you massege here&amp">
                 {email}
@@ -45,28 +53,28 @@ export default Sosial;
 
 const Box = styled.div`
   width: 100%;
-  height: 480px;
-  font-size: 1.8rem;
+  min-height: 40vh;
+  font-size: 2rem;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
   color: #2f2f35;
   font-weight: 600;
-  @media (min-width: 813px) {
-    min-height: 100vh;
+  /* @media (min-width: 820px) {
+    height: 60vh;
   }
+  @media (min-width: 1100px) {
+    height: 100vh;
+  } */
 `;
 const ParallaxBox = styled.div`
   width: 100%;
-  min-height: auto;
-  background-color: blue;
-  background-image: url(https://picsum.photos/id/365/5616/3744);
-  /* background-image: url(https://picsum.photos/id/20/3670/2462); */
+  background-image: url(${Pic});
   background-repeat: no-repeat;
   background-size: 50% 50%;
   position: static;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
   grid-template-columns: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -76,50 +84,50 @@ const ParallaxBox = styled.div`
 `;
 const ContentTitle = styled.div`
   font-family: sans-serif;
-  grid-area: 1/1/2/2;
   pointer-events: none;
   position: relative;
-  margin: 100px 0px;
+  align-self:center;
+  padding: 3vh 0;
 `;
 const ContentDiv = styled.div`
-  min-height: auto;
+  height: auto;
   background-color: none;
-  grid-area: 2/ 1 / 4 / 2;
   min-width: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 100%;
+  grid-template-rows:2fr 0.5fr;
+  grid-template-columns:repeat(2,1fr);
   font-family: sans-serif;
 `;
 const SosialLinks = styled.div`
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
+  grid-area:1/2/2/3
+  /* grid-template-columns: 100%; */
+  /* grid-template-rows: 100%; */
+  align-content: center;
+  justify-content: space-around;
 `;
 const Ul = styled.ul`
-  grid-area: 1/ 1 / 2 / 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2,1fr);
 `;
 const Li = styled.li`
   align-self: center;
   text-align: center;
   justify-content: space-around;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 const Contacts = styled.div`
-  grid-area: 2/ 1 / 3 / 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 12%;
-  padding-left: 10px;
-  padding-right: 10px;
-  align-self: end;
+  grid-area:1/1/2/2;
   font-size: 2.6rem;
   line-height: 2.5rem;
   text-align: center;
-  background-color: rgba(188, 182, 193, 0.4);
-  @media (min-width: 813px) {
+  align-self: center;
+  padding-left: 10px;
+  @media (min-width: 820px) {
     padding-top: 40px;
     padding-bottom: 10px;
   }
@@ -130,53 +138,81 @@ const H1 = styled.h1`
   justify-self: center;
   text-align: center;
 
-  @media (min-width: 813px) {
+  @media (min-width: 820px) {
     font-size: 55px;
   }
 `;
-const Span = styled.p`
-  font-size: 1.6rem;
-  position: relative;
-  justify-self: start;
-  align-self: start;
-  font-weight: 600;
-  color: #393955;
-  font-family: fantasy;
-  font-weight: 400;
+const Lang=styled.div`
+  display:flex;
+  flex-direction:row;
+  font-size: 1.8rem;
+  justify-content: space-around;
+  align-content:center;
+  padding-bottom:20px;
 
-  @media (min-width: 813px) {
+  @media (min-width: 820px) {
     font-size: 2.6rem;
-    justify-self: center;
   }
-`;
-const SpanEmail = styled.p`
-  font-size: 1.6rem;
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+`
+const Span = styled.p`
+  font-size: 1.8rem;
   position: relative;
-  justify-self: start;
+  justify-self: center;
   align-self: start;
   font-weight: 600;
-  color: #393955;
+  color: #144dce;
   font-family: fantasy;
-  font-weight: 400;
+  padding-bottom:20px;
+  text-shadow: 1px -1px black;
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.2);
+  }
+  @media (min-width: 820px) {
+    font-size: 2.6rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+`;
+const SpanEmail = styled.p`
+  font-size: 1.8rem;
+  position: relative;
+  justify-self: center;
+  align-self: start;
+  font-weight: 600;
+  color: #144dce;
+  font-family: fantasy;
+  text-shadow: 1px -1px black;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+  @media (min-width: 820px) {
+    font-size: 2.6rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 4rem;
   }
 `;
 const A = styled.a`
   font-size: 1.6rem;
   cursor: pointer;
-  color: #393955;
-  @media (min-width: 813px) {
+  color: #144dce;
+  @media (min-width: 820px) {
     font-size: 2.6rem;
     justify-self: center;
   }
   /* font-family: fantasy; */
 `;
 const Img = styled.img`
-  width: 50%;
+  width: 60px;
   height: auto;
-  @media (min-width: 813px) {
+  margin: 20px;
+  @media (min-width: 820px) {
     width: 80px;
   }
 `;
