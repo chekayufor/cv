@@ -80,8 +80,10 @@ const WelcomeMessage = styled.div`
   }
 `;
 const Img = styled.img`
+  border-radius:100%;
+  height: 70%;
+  width: auto;
   display: none;
-  height: auto;
   grid-area: 1/2/4/3;
   z-index: 11;
   justify-self: center;
@@ -89,13 +91,10 @@ const Img = styled.img`
   @media (min-width: 1165px) {
     margin-top: 160px;
     display: grid;
-    width: 160%;
-    height: auto;
     grid-area: 1/2/4/3;
   }
   @media (min-width: 1800px) {
     margin-top: 50px;
-    width: 120%;
   }
 `;
 const H1 = styled.h1`
