@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2a792848dde1b97f03b6613692608b70",
+    "revision": "f54e49f5c80c2f721ee770dc1dcbd813",
     "url": "/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.cf4a9326.chunk.js"
   },
   {
-    "revision": "dbd2187d85b9328f56b8",
-    "url": "/static/js/main.acb825c7.chunk.js"
+    "revision": "328daa117d847e2e3d57",
+    "url": "/static/js/main.b41ac2a9.chunk.js"
   },
   {
     "revision": "74e362fc6c1703a1e1bb",
@@ -72,6 +72,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/delicate-colorful-flower-on-white-background_23-2147847603.529268b6.jpg"
   },
   {
+    "revision": "459e27901b37cd21eb19620d6d0b0796",
+    "url": "/static/media/elena.459e2790.jpeg"
+  },
+  {
     "revision": "8e03b04a83894b9cd6a1257901fbe475",
     "url": "/static/media/flipCardGame.8e03b04a.png"
   },
@@ -102,10 +106,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1ccb8c7d3c79005800c65c70c81cf7de",
     "url": "/static/media/logoPotatoHouse.1ccb8c7d.jpg"
-  },
-  {
-    "revision": "76e958e4debe7f70a399be749f6fd780",
-    "url": "/static/media/myPhoto.76e958e4.png"
   },
   {
     "revision": "17f2f052d0ffb9a6d9c35eb0106aacfb",
