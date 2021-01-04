@@ -132,14 +132,6 @@ export const CarouselData = [
     linkCode: "https://githab-searchusers.netlify.com"
   },
   {
-    id: 1,
-    component: null,
-    img: prague,
-    name: "Travel site",
-    linkOnline: "https://inprague.herokuapp.com/",
-    linkCode: "https://github.com/chekayufor/prague"
-  },
-  {
     id: 15,
     component: null,
     img: bottleWithBubble,
@@ -154,6 +146,13 @@ export const CarouselData = [
     name: "Contact Keeper (FullStackAplication React)",
     linkOnline: "https://github.com/chekayufor/contactkeeper",
     linkCode: "http://appointmentbook.herokuapp.com/"
+  },{
+    id: 1,
+    component: null,
+    img: prague,
+    name: "Travel site",
+    linkCode: "https://inprague.herokuapp.com/",
+    linkOnline: "https://github.com/chekayufor/prague"
   },
   {
     id: 17,

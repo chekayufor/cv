@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Footer = React.forwardRef((props, ref) => {
   return (
     <Box ref={ref}>
-      <H4>© 2018 by Elena Dubinsky</H4>
+      <H4>© 2021 by Elena Dubinsky</H4>
     </Box>
   );
 });
@@ -24,7 +24,7 @@ const Box = styled.div`
   font-size: 1.6rem;
   font-family: sans-serif;
   padding-bottom: 5px;
-  @media (min-width: 750px) {
+  @media (min-width: 820px) {
     font-size: 2.2rem;
   }
   @media (min-width: 1200px) {

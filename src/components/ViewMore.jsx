@@ -35,7 +35,7 @@ const StyledLink = styled(Link)`
     font-weight: 400;
     color: #144dce;
     font-family: fantasy;
-    text-shadow: 1px -1px black;
+    text-shadow: 0.5px -0.5px black;
     transition: all 0.2s ease-in-out;
   /* background-color: none; */
     list-style: none;

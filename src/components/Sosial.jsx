@@ -133,13 +133,15 @@ const Contacts = styled.div`
   }
 `;
 const H1 = styled.h1`
+  color:#393955;
   font-size: 30px;
   font-family: sans-serif;
   justify-self: center;
   text-align: center;
-
+  padding-top:3vh;
   @media (min-width: 820px) {
     font-size: 55px;
+    padding-bottom:3vh;
   }
 `;
 const Lang=styled.div`
@@ -166,7 +168,7 @@ const Span = styled.p`
   color: #144dce;
   font-family: fantasy;
   padding-bottom:20px;
-  text-shadow: 1px -1px black;
+  text-shadow: 0.5px -0.5px black;
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.2);
@@ -186,7 +188,7 @@ const SpanEmail = styled.p`
   font-weight: 600;
   color: #144dce;
   font-family: fantasy;
-  text-shadow: 1px -1px black;
+  text-shadow: 0.5px -0.5px black;
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.2);

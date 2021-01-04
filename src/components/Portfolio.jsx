@@ -55,8 +55,8 @@ const H1 = styled.h1`
   padding-top:3vh;
   @media (min-width: 820px) {
     font-size: 55px;
+    padding-bottom:3vh;
   }
-  padding-bottom:3vh;
 `;
 const CarouselContainer = styled.div`
   display: grid;

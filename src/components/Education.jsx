@@ -43,7 +43,7 @@ const Education = () => {
                   <h4>Ness Technologies</h4>
                 </a>
               </h3>
-                {ness && ness.split('\n').map(i=> <p>{i}</p>)
+                {ness && ness.split('\n').map(i=> <P>{i}</P>)
               }
               </Text>
             </Div>
@@ -127,8 +127,10 @@ const H1 = styled.h1`
   justify-self: center;
   text-align: center;
   align-self: center;
+  padding-top:3vh;
   @media (min-width: 820px) {
     font-size: 55px;
+    padding-bottom:3vh;
   }
 `;
 const Experience = styled.div`
@@ -183,7 +185,7 @@ const Text = styled.div`
     h3{
       color:#393955;
       font-size: 20px;
-      text-shadow: 1px -1px black;
+      text-shadow: 0.5px -0.5px black;
       a{
         text-decoration: none;
       }
@@ -199,6 +201,7 @@ const Text = styled.div`
         font-family: fantasy;
         text-shadow: 1px -1px black;
         transition: all 0.2s ease-in-out;
+        
       }
     }
     @media (min-width: 1200px) {
@@ -248,19 +251,18 @@ const H4 = styled.h4`
     line-height: 2.5rem;
   }
 `;
-const Span = styled.p`
+const P = styled.p`
+ font-family:Verdana;
   line-height: 1.8em;
   position: relative;
-  grid-area: 3 / 1/ 4 / 2;
   justify-self: start;
   align-self: start;
-  font-family: Times New Roman;
-  margin: 0 25%;
-  border-radius: 5px;
-  background-color: rgba(188, 182, 193, 0.4);
-
-  font-weight: 600;
+  color: #2f0a24;
+  font-size: 1.4rem;
+  @media (min-width: 820px) {
+    font-size: 1.8rem;
+  }
   @media (min-width: 1800px) {
-    line-height: 2.5rem;
+    font-size: 2.5rem;
   }
 `;
