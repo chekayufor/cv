@@ -24,12 +24,12 @@ const Box = styled.div`
   font-size: 1.6rem;
   font-family: sans-serif;
   padding-bottom: 5px;
-  @media (min-width: 820px) {
+  /* @media (min-width: 820px) {
     font-size: 2.2rem;
-  }
+  } */
   @media (min-width: 1200px) {
     align-items: center;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 `;
 const H4 = styled.h5`
