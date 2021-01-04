@@ -1,0 +1,12 @@
+
+
+npm start  -> localhost
+
+npm run build
+git add .
+git commit -m ''
+git push
+
+
+netlify status
+netlify deploy --prod
