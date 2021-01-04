@@ -57,7 +57,7 @@ const Education = () => {
                   <h4>Electroengeniring</h4>
                 </a>
               </h3>
-                {logistics && logistics.split('\n').map(i=> <p>{i}</p>)
+                {logistics && logistics.split('\n').map(i=> <P>{i}</P>)
               }
               </Text>
             </Div>
@@ -71,7 +71,7 @@ const Education = () => {
                     <h4>POTATO'S HOUSE </h4>
                   </a>
                 </h3>
-                  {potata && potata.split('\n').map(i=> <p>{i}</p>)
+                  {potata && potata.split('\n').map(i=> <P>{i}</P>)
                 }
               </Text>
             </Div>
@@ -199,7 +199,7 @@ const Text = styled.div`
         font-weight: 600;
         color: #144dce;
         font-family: fantasy;
-        text-shadow: 1px -1px black;
+        text-shadow: 0.5px -0.5px black;
         transition: all 0.2s ease-in-out;
         
       }
@@ -252,7 +252,7 @@ const H4 = styled.h4`
   }
 `;
 const P = styled.p`
- font-family:Verdana;
+  font-family:Verdana;
   line-height: 1.8em;
   position: relative;
   justify-self: start;
