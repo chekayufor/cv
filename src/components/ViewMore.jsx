@@ -17,7 +17,7 @@ const Box = styled.div`
   display: grid;
   grid-area: 3/1/4/4;
   text-transform: uppercase;
-  padding:3vh 0;
+  padding: 3vh 0;
   @media (min-width: 820px) {
     font-size: 2.8rem;
   }
@@ -26,20 +26,19 @@ const Box = styled.div`
   }
 `;
 const StyledLink = styled(Link)`
-  text-transform:uppercase;
-    /* padding:10px 0; */
-    font-size: 1.4rem;
-    position: relative;
-    justify-self: center;
-    align-self: start;
-    font-weight: 400;
-    color: #144dce;
-    font-family: fantasy;
-    text-shadow: 0.5px -0.5px black;
-    transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  /* padding:10px 0; */
+  font-size: 1.4rem;
+  position: relative;
+  justify-self: center;
+  align-self: start;
+  font-weight: 400;
+  color: #144dce;
+  text-shadow: 0.5px -0.5px black;
+  transition: all 0.2s ease-in-out;
   /* background-color: none; */
-    list-style: none;
-    cursor: pointer;
+  list-style: none;
+  cursor: pointer;
   /* color:#bb73a4; */
   /* justify-self: center; */
   transition: all 0.2s ease-in-out;
@@ -48,9 +47,9 @@ const StyledLink = styled(Link)`
     transform: scale(1.1);
   }
   @media (min-width: 1200px) {
-      font-size: 30px;
-      }
+    font-size: 30px;
+  }
   @media (min-width: 1800px) {
-      font-size: 2.4rem;
-    }
+    font-size: 2.4rem;
+  }
 `;

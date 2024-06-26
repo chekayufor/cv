@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import { SosialLinksList } from "./_api";
 import { CVContext } from "./CV.context";
 // import Pic from '../images/flowers.png'
-import Pic from '../images/woman-workspace-with-notebook-pink-carnation-flower-on-white-background_46208-102.jpg'
+import Pic from "../images/woman-workspace-with-notebook-pink-carnation-flower-on-white-background_46208-102.jpg";
 
 const Sosial = () => {
   const { sosialData, myData } = useContext(CVContext);
@@ -30,11 +30,11 @@ const Sosial = () => {
             </Ul>
           </SosialLinks>
           <Contacts>
-            <Lang> 
-            <h5>🇮🇱</h5>
-            <h5>🇷🇺</h5>
-            <h5>🇺🇦</h5>
-            <h5>🇺🇸</h5>
+            <Lang>
+              <h5>🇮🇱</h5>
+              <h5>🇷🇺</h5>
+              <h5>🇺🇦</h5>
+              <h5>🇺🇸</h5>
             </Lang>
             <Span> {tel}</Span>
             <SpanEmail>
@@ -86,7 +86,7 @@ const ContentTitle = styled.div`
   font-family: sans-serif;
   pointer-events: none;
   position: relative;
-  align-self:center;
+  align-self: center;
   padding: 3vh 0;
 `;
 const ContentDiv = styled.div`
@@ -94,8 +94,8 @@ const ContentDiv = styled.div`
   background-color: none;
   min-width: 100%;
   display: grid;
-  grid-template-rows:2fr 0.5fr;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-rows: 2fr 0.5fr;
+  grid-template-columns: repeat(2, 1fr);
   font-family: sans-serif;
 `;
 const SosialLinks = styled.div`
@@ -109,7 +109,7 @@ const SosialLinks = styled.div`
 const Ul = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2,1fr);
+  grid-template-rows: repeat(2, 1fr);
 `;
 const Li = styled.li`
   align-self: center;
@@ -121,7 +121,7 @@ const Li = styled.li`
   }
 `;
 const Contacts = styled.div`
-  grid-area:1/1/2/2;
+  grid-area: 1/1/2/2;
   font-size: 2.6rem;
   line-height: 2.5rem;
   text-align: center;
@@ -133,24 +133,24 @@ const Contacts = styled.div`
   }
 `;
 const H1 = styled.h1`
-  color:#393955;
+  color: #393955;
   font-size: 30px;
   font-family: sans-serif;
   justify-self: center;
   text-align: center;
-  padding-top:3vh;
+  padding-top: 3vh;
   @media (min-width: 820px) {
     font-size: 55px;
-    padding-bottom:3vh;
+    padding-bottom: 3vh;
   }
 `;
-const Lang=styled.div`
-  display:flex;
-  flex-direction:row;
+const Lang = styled.div`
+  display: flex;
+  flex-direction: row;
   font-size: 1.8rem;
   justify-content: space-around;
-  align-content:center;
-  padding-bottom:20px;
+  align-content: center;
+  padding-bottom: 20px;
 
   @media (min-width: 820px) {
     font-size: 2.6rem;
@@ -158,16 +158,14 @@ const Lang=styled.div`
   @media (min-width: 1200px) {
     font-size: 4rem;
   }
-`
+`;
 const Span = styled.p`
   font-size: 1.8rem;
   position: relative;
   justify-self: center;
   align-self: start;
-  font-weight: 600;
   color: #144dce;
-  font-family: fantasy;
-  padding-bottom:20px;
+  padding-bottom: 20px;
   text-shadow: 0.5px -0.5px black;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -185,9 +183,7 @@ const SpanEmail = styled.p`
   position: relative;
   justify-self: center;
   align-self: start;
-  font-weight: 600;
   color: #144dce;
-  font-family: fantasy;
   text-shadow: 0.5px -0.5px black;
   transition: all 0.2s ease-in-out;
   &:hover {
