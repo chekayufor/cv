@@ -1,4 +1,4 @@
-import avatar from "../images/profile-avatar.jpeg";
+import avatar from "../images/profile-avatar.png";
 import logoNess from "../images/logoNess.jpeg";
 import logoElectro from "../images/logoElectroinginiring.png";
 import logoPotato from "../images/logoPotatoHouse.png";
