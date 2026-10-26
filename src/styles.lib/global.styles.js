@@ -51,20 +51,23 @@ const GlobalStyles = createGlobalStyle`
     body {
       top: 0;
       left: 0;
-      font-size: 14px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Helvetica Neue, Arial, sans-serif;
-      background: #f4f2ee;
+      font-size: 15px;
+      font-family: ${({ theme }) => theme.fonts.body};
+      background: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.ink};
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      
     }
     ul {
       list-style-type: none;
+    }
+    button {
+      font-family: inherit;
     }
 `;
 

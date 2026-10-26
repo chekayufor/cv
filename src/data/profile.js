@@ -8,6 +8,14 @@ export const profile = {
   name: "Elena Dubinsky",
   headline:
     "Head of Digital Analytics | Digital Strategy Consultant | Digital Transformation & AI Integration | Digital Analytics Mentor & Trainer | Leadership Development | Banking",
+  roles: [
+    "Head of Digital Analytics",
+    "Digital Strategy Consultant",
+    "AI Product Strategist",
+    "Full Stack Developer"
+  ],
+  tagline:
+    "Turning data, AI and strong product thinking into digital experiences that move the needle.",
   location: "Tel Aviv District, Israel",
   avatar,
   linkedinUrl: "https://www.linkedin.com/in/elena-dubinsky-bb5b39122",
@@ -16,6 +24,12 @@ export const profile = {
   email: "dubinsky.cv@gmail.com",
   phone: "+972-58-783-8377"
 };
+
+export const stats = [
+  { value: "15+", label: "Years of experience" },
+  { value: "6+", label: "Years at Ness Technologies" },
+  { value: "4", label: "Languages spoken" }
+];
 
 export const about = [
   "I am a digital analytics leader, AI product strategist and professional Full Stack Developer with more than 15 years of experience in business analysis, project management and digital product development. I hold master's degrees in Civil Engineering and Economics, with a specialization in Banking. This background gives me strong analytical skills and a deep understanding of both technology and business. It helps me connect business goals, customer needs, data and technical solutions.",
