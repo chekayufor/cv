@@ -220,13 +220,8 @@ export const publications = [
   "Presentation of my personal website at the SheCodes congress"
 ];
 
-// TODO: Add your LinkedIn posts from the last two weeks here.
-// Each post needs: date, text (excerpt is fine) and the direct link to the
-// post on LinkedIn so visitors can open it there.
-// Example shape:
-// {
-//   date: "October 14, 2026",
-//   text: "Excited to share that our team just launched a new analytics dashboard...",
-//   url: "https://www.linkedin.com/posts/elena-dubinsky-bb5b39122_activity-123456789-abcd"
-// }
+// Fallback posts, used only until something has been published through the
+// /admin panel (see netlify/functions/posts.mjs). Add posts from /admin
+// instead of editing this file directly.
+// Shape: { _id, topic, title, excerpt, text, date, linkedinUrl, img }
 export const posts = [];
