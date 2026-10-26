@@ -48,9 +48,8 @@ const Bar = styled.div`
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(246, 247, 251, 0.86);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border-bottom: 3px solid ${({ theme }) => theme.colors.navy};
 `;
 
 const Inner = styled.div`
@@ -78,13 +77,16 @@ const Monogram = styled.span`
   justify-content: center;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gradient};
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.rose};
+  border: 2px solid ${({ theme }) => theme.colors.navy};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   color: #ffffff;
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   flex-shrink: 0;
+  transform: rotate(-4deg);
 `;
 
 const BrandText = styled.div`
@@ -140,24 +142,30 @@ const StyledLink = styled(NavLink)`
     left: 0;
     right: 0;
     bottom: -2px;
-    height: 2px;
+    height: 3px;
     border-radius: 2px;
-    background: ${({ theme }) => theme.colors.gradient};
+    background: ${({ theme }) => theme.colors.rose};
   }
 `;
 
 const MenuButton = styled.button`
-  border: none;
-  background: ${({ theme }) => theme.colors.pinkPale};
-  color: ${({ theme }) => theme.colors.roseDeep};
+  border: 2px solid ${({ theme }) => theme.colors.navy};
+  background: #ffffff;
+  color: ${({ theme }) => theme.colors.navy};
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 10px;
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.navy};
+  }
   @media (min-width: 860px) {
     display: none;
   }

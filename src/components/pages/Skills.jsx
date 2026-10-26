@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { topSkills, tools } from "../../data/profile";
 
 const Skills = () => (
   <PageContainer>
-    <Eyebrow>What I bring</Eyebrow>
-    <PageTitle>Skills</PageTitle>
-    <PageLead>The capabilities and tools I rely on to turn data into decisions.</PageLead>
+    <ChapterHeader
+      index="04"
+      eyebrow="What I bring"
+      title="Skills"
+      lead="The capabilities and tools I rely on to turn data into decisions."
+    />
 
     <SectionTitle>Top Skills</SectionTitle>
     <Pills>
@@ -45,12 +48,12 @@ const Pills = styled.div`
 `;
 
 const Pill = styled.span`
-  background: ${({ featured, theme }) => (featured ? theme.colors.gradient : theme.colors.surface)};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ featured, theme }) => (featured ? "transparent" : theme.colors.border)};
+  background: ${({ featured, theme }) => (featured ? theme.colors.rose : "#ffffff")};
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   color: ${({ featured, theme }) => (featured ? "#ffffff" : theme.colors.navy)};
   border-radius: ${({ theme }) => theme.radii.pill};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 10px 18px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
 `;

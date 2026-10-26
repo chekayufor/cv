@@ -49,11 +49,16 @@ const GlobalStyles = createGlobalStyle`
       scroll-behavior: smooth;
     }
     body {
+      overflow-x: hidden;
+    }
+    body {
       top: 0;
       left: 0;
       font-size: 15px;
       font-family: ${({ theme }) => theme.fonts.body};
-      background: ${({ theme }) => theme.colors.background};
+      background-color: ${({ theme }) => theme.colors.background};
+      background-image: radial-gradient(rgba(30, 43, 74, 0.09) 1.2px, transparent 1.2px);
+      background-size: 22px 22px;
       color: ${({ theme }) => theme.colors.ink};
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;

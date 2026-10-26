@@ -25,14 +25,17 @@ const theme = {
     script: "'Caveat', cursive"
   },
   radii: {
-    sm: "10px",
-    md: "16px",
-    lg: "22px",
+    sm: "8px",
+    md: "14px",
+    lg: "18px",
     pill: "999px"
   },
   shadow: {
     soft: "0 8px 30px rgba(30, 43, 74, 0.14)",
-    card: "0 4px 18px rgba(30, 43, 74, 0.1)"
+    card: "0 4px 18px rgba(30, 43, 74, 0.1)",
+    pop: "5px 5px 0 #1E2B4A",
+    popSm: "3px 3px 0 #1E2B4A",
+    popRose: "5px 5px 0 #A22C5C"
   },
   maxWidth: "760px"
 };

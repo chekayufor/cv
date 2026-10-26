@@ -33,25 +33,27 @@ const Wrap = styled.footer`
 `;
 
 const Divider = styled.div`
-  width: 56px;
-  height: 1px;
-  background: ${({ theme }) => theme.colors.border};
+  width: 46px;
+  height: 4px;
+  background: ${({ theme }) => theme.colors.rose};
+  border-radius: 2px;
   margin: 0 auto 18px;
 `;
 
 const Signature = styled.div`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 16px;
   color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 2px;
 `;
 
 const Script = styled.div`
   font-family: ${({ theme }) => theme.fonts.script};
-  font-size: 20px;
+  font-size: 22px;
   color: ${({ theme }) => theme.colors.rose};
   margin-bottom: 16px;
+  transform: rotate(-1.5deg);
 `;
 
 const Row = styled.div`

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { education } from "../../data/profile";
 
 const initials = name =>
@@ -13,9 +13,12 @@ const initials = name =>
 
 const Education = () => (
   <PageContainer>
-    <Eyebrow>Learning Path</Eyebrow>
-    <PageTitle>Education</PageTitle>
-    <PageLead>From civil engineering and economics to full-stack development and product design.</PageLead>
+    <ChapterHeader
+      index="03"
+      eyebrow="Learning Path"
+      title="Education"
+      lead="From civil engineering and economics to full-stack development and product design."
+    />
 
     <Grid>
       {education.map(entry => (
@@ -48,10 +51,10 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 18px;
 `;
 

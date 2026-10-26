@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { about, languages, certifications, publications } from "../../data/profile";
 
 const levelScore = {
@@ -13,9 +13,12 @@ const levelScore = {
 
 const About = () => (
   <PageContainer>
-    <Eyebrow>Get to know me</Eyebrow>
-    <PageTitle>About Me</PageTitle>
-    <PageLead>The story behind the dashboards, strategy decks and product roadmaps.</PageLead>
+    <ChapterHeader
+      index="01"
+      eyebrow="Get to know me"
+      title="About Me"
+      lead="The story behind the dashboards, strategy decks and product roadmaps."
+    />
 
     <Card>
       {about.map(paragraph => (
@@ -57,12 +60,12 @@ const About = () => (
 export default About;
 
 const Card = styled.div`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
+  box-shadow: ${({ theme }) => theme.shadow.pop};
   padding: 22px;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 `;
 
 const Paragraph = styled.p`
@@ -91,10 +94,10 @@ const LangGrid = styled.div`
 `;
 
 const LangCard = styled.div`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 14px;
 `;
 
@@ -124,12 +127,12 @@ const LangLevel = styled.div`
 `;
 
 const List = styled.ul`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 6px 18px;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   &:last-of-type {
     margin-bottom: 0;
   }

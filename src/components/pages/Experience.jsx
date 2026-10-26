@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { experience } from "../../data/profile";
 import { ChevronDownIcon } from "../icons";
 
@@ -29,12 +29,12 @@ const Experience = () => {
 
   return (
     <PageContainer>
-      <Eyebrow>Career Journey</Eyebrow>
-      <PageTitle>Experience</PageTitle>
-      <PageLead>
-        15+ years across business analysis, project management and digital analytics. Tap a role
-        to see the details.
-      </PageLead>
+      <ChapterHeader
+        index="02"
+        eyebrow="Career Journey"
+        title="Experience"
+        lead="15+ years across business analysis, project management and digital analytics. Tap a role to see the details."
+      />
 
       <Timeline>
         {experience.map((entry, companyIndex) => (
@@ -104,10 +104,10 @@ const Timeline = styled.div`
 `;
 
 const Company = styled.div`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
+  box-shadow: ${({ theme }) => theme.shadow.pop};
   padding: 18px;
 `;
 

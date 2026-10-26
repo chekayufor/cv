@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { profile } from "../../data/profile";
 import { MailIcon, PhoneIcon, LinkedInIcon } from "../icons";
 
@@ -28,12 +28,12 @@ const contactCards = [
 
 const Contact = () => (
   <PageContainer>
-    <Eyebrow>Say hello</Eyebrow>
-    <PageTitle>Let's Connect</PageTitle>
-    <PageLead>
-      Open to conversations about digital analytics, product strategy and AI integration — reach
-      out any time.
-    </PageLead>
+    <ChapterHeader
+      index="06"
+      eyebrow="Say hello"
+      title="Let's Connect"
+      lead="Open to conversations about digital analytics, product strategy and AI integration — reach out any time."
+    />
 
     <Cards>
       {contactCards.map(card => {
@@ -74,16 +74,16 @@ const Card = styled.a`
   display: flex;
   align-items: center;
   gap: 14px;
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 16px 18px;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: ${({ theme }) => theme.shadow.card};
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 ${({ theme }) => theme.colors.navy};
   }
 `;
 

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
-import { PageContainer, Eyebrow, PageTitle, PageLead } from "../layout/Page";
+import { PageContainer, ChapterHeader } from "../layout/Page";
 import { profile } from "../../data/profile";
 import usePosts from "../../hooks/usePosts";
 import { imgSrc } from "../../utils/images";
@@ -23,9 +23,12 @@ const Activity = () => {
 
   return (
     <PageContainer>
-      <Eyebrow>Fresh thoughts</Eyebrow>
-      <PageTitle>Activity</PageTitle>
-      <PageLead>Posts on digital analytics, AI and product — straight from me, by topic.</PageLead>
+      <ChapterHeader
+        index="05"
+        eyebrow="Fresh thoughts"
+        title="Activity"
+        lead="Posts on digital analytics, AI and product — straight from me, by topic."
+      />
 
       {posts === null ? (
         <Loading>Loading posts…</Loading>
@@ -100,7 +103,7 @@ const Loading = styled.p`
 
 const Empty = styled.div`
   background: ${({ theme }) => theme.colors.pinkPale};
-  border: 1px dashed ${({ theme }) => theme.colors.pink};
+  border: 2px dashed ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 22px;
   margin-bottom: 20px;
@@ -134,29 +137,29 @@ const Topics = styled.div`
 `;
 
 const TopicPill = styled.button`
-  border: 1px solid ${({ theme, active }) => (active ? "transparent" : theme.colors.border)};
-  background: ${({ theme, active }) => (active ? theme.colors.gradient : theme.colors.surface)};
-  backdrop-filter: blur(10px);
+  border: 2px solid ${({ theme }) => theme.colors.navy};
+  background: ${({ theme, active }) => (active ? theme.colors.rose : "#ffffff")};
   color: ${({ theme, active }) => (active ? "#ffffff" : theme.colors.navy)};
   border-radius: ${({ theme }) => theme.radii.pill};
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   padding: 7px 16px;
   font-size: 12.5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 `;
 
 const List = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 24px;
 `;
 
 const Post = styled.div`
-  background: ${({ theme }) => theme.colors.surface};
-  backdrop-filter: blur(10px);
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
+  box-shadow: ${({ theme }) => theme.shadow.pop};
   overflow: hidden;
 `;
 
