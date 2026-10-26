@@ -78,7 +78,8 @@ const List = styled.div`
 `;
 
 const Post = styled.div`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: 16px;

@@ -4,6 +4,9 @@ import { profile } from "../../data/profile";
 
 const Footer = () => (
   <Wrap>
+    <Divider />
+    <Signature>{profile.name}</Signature>
+    <Script>Turning data into trust</Script>
     <Row>
       <a href={`mailto:${profile.email}`}>Email</a>
       <Dot>·</Dot>
@@ -23,10 +26,32 @@ export default Footer;
 
 const Wrap = styled.footer`
   text-align: center;
-  padding: 32px 20px 90px;
+  padding: 28px 20px 90px;
   @media (min-width: 860px) {
-    padding: 32px 20px;
+    padding: 28px 20px;
   }
+`;
+
+const Divider = styled.div`
+  width: 56px;
+  height: 1px;
+  background: ${({ theme }) => theme.colors.border};
+  margin: 0 auto 18px;
+`;
+
+const Signature = styled.div`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-weight: 700;
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.navy};
+  margin-bottom: 2px;
+`;
+
+const Script = styled.div`
+  font-family: ${({ theme }) => theme.fonts.script};
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.rose};
+  margin-bottom: 16px;
 `;
 
 const Row = styled.div`

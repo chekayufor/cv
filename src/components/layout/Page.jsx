@@ -25,8 +25,8 @@ export const Eyebrow = styled.p`
 export const PageTitle = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 32px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.ink};
+  font-weight: 800;
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 10px;
 `;
 

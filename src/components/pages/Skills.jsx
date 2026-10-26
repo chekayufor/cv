@@ -32,8 +32,8 @@ export default Skills;
 const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 19px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.ink};
+  font-weight: 800;
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 14px;
 `;
 
@@ -45,9 +45,10 @@ const Pills = styled.div`
 `;
 
 const Pill = styled.span`
-  background: ${({ featured, theme }) => (featured ? theme.colors.gradient : "#ffffff")};
+  background: ${({ featured, theme }) => (featured ? theme.colors.gradient : theme.colors.surface)};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ featured, theme }) => (featured ? "transparent" : theme.colors.border)};
-  color: ${({ featured, theme }) => (featured ? "#ffffff" : theme.colors.roseDeep)};
+  color: ${({ featured, theme }) => (featured ? "#ffffff" : theme.colors.navy)};
   border-radius: ${({ theme }) => theme.radii.pill};
   padding: 10px 18px;
   font-size: 13px;

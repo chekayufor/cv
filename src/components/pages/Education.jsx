@@ -48,7 +48,8 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 18px;
@@ -87,7 +88,7 @@ const Placeholder = styled.div`
 const School = styled.div`
   font-weight: 700;
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 4px;
 `;
 

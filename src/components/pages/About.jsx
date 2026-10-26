@@ -57,7 +57,8 @@ const About = () => (
 export default About;
 
 const Card = styled.div`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 22px;
@@ -77,8 +78,8 @@ const Paragraph = styled.p`
 const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 19px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.ink};
+  font-weight: 800;
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 14px;
 `;
 
@@ -90,7 +91,8 @@ const LangGrid = styled.div`
 `;
 
 const LangCard = styled.div`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: 14px;
@@ -99,7 +101,7 @@ const LangCard = styled.div`
 const LangName = styled.div`
   font-weight: 700;
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 8px;
 `;
 
@@ -122,7 +124,8 @@ const LangLevel = styled.div`
 `;
 
 const List = styled.ul`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: 6px 18px;

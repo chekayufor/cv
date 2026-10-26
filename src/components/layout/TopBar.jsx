@@ -48,7 +48,7 @@ const Bar = styled.div`
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(253, 249, 244, 0.92);
+  background: rgba(246, 247, 251, 0.86);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
@@ -97,7 +97,7 @@ const BrandName = styled.span`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: 700;
   font-size: 17px;
-  color: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.navy};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

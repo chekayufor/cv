@@ -16,15 +16,33 @@ const blurbFor = {
   "/contact": "Let's talk — reach out"
 };
 
+const [firstName, ...restName] = profile.name.split(" ");
+const lastName = restName.join(" ");
+
 const Home = () => (
   <>
     <Hero>
       <Blob className="one" />
       <Blob className="two" />
+      <SideLabel className="left">
+        <span>Data</span>
+        <span>Strategy</span>
+        <span>Trust</span>
+      </SideLabel>
+      <SideLabel className="right">
+        <span>Analytics</span>
+        <span>AI</span>
+        <span>Growth</span>
+      </SideLabel>
       <HeroInner>
         <Avatar src={profile.avatar} alt={profile.name} />
-        <Eyebrow>Hello, I'm</Eyebrow>
-        <Name>{profile.name}</Name>
+        <Eyebrow>
+          <Line /> Hello, I'm <Line />
+        </Eyebrow>
+        <Name>
+          <First>{firstName}</First>
+          <Last>{lastName}</Last>
+        </Name>
         <Roles>
           {profile.roles.map(role => (
             <RolePill key={role}>{role}</RolePill>
@@ -88,7 +106,7 @@ const Hero = styled.div`
 const Blob = styled.div`
   position: absolute;
   border-radius: 50%;
-  filter: blur(40px);
+  filter: blur(46px);
   opacity: 0.55;
   animation: ${floaty} 7s ease-in-out infinite;
   &.one {
@@ -101,10 +119,35 @@ const Blob = styled.div`
   &.two {
     width: 180px;
     height: 180px;
-    background: ${({ theme }) => theme.colors.pinkStrong};
+    background: ${({ theme }) => theme.colors.navy};
+    opacity: 0.12;
     bottom: -50px;
     left: -40px;
     animation-delay: 2s;
+  }
+`;
+
+const SideLabel = styled.div`
+  display: none;
+  position: absolute;
+  top: 56px;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.inkFaint};
+  @media (min-width: 900px) {
+    display: flex;
+  }
+  &.left {
+    left: 32px;
+  }
+  &.right {
+    right: 32px;
+    text-align: right;
+    align-items: flex-end;
   }
 `;
 
@@ -123,26 +166,50 @@ const Avatar = styled.img`
   height: 112px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ffffff;
+  border: 4px solid rgba(255, 255, 255, 0.9);
   box-shadow: ${({ theme }) => theme.shadow.soft};
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 `;
 
 const Eyebrow = styled.p`
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.rose};
-  margin-bottom: 4px;
+  margin-bottom: 10px;
+`;
+
+const Line = styled.span`
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: ${({ theme }) => theme.colors.rose};
+  opacity: 0.6;
 `;
 
 const Name = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 38px;
+  margin-bottom: 16px;
+  line-height: 1.05;
+`;
+
+const First = styled.span`
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.navy};
+`;
+
+const Last = styled.span`
+  display: block;
+  font-size: 46px;
   font-weight: 800;
-  color: ${({ theme }) => theme.colors.ink};
-  margin-bottom: 14px;
+  color: ${({ theme }) => theme.colors.rose};
+  letter-spacing: -0.01em;
 `;
 
 const Roles = styled.div`
@@ -154,9 +221,10 @@ const Roles = styled.div`
 `;
 
 const RolePill = styled.span`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
-  color: ${({ theme }) => theme.colors.roseDeep};
+  color: ${({ theme }) => theme.colors.navy};
   font-size: 12px;
   font-weight: 600;
   padding: 6px 12px;
@@ -199,9 +267,10 @@ const Primary = styled(Link)`
 const Secondary = styled(Link)`
   display: inline-flex;
   align-items: center;
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
-  color: ${({ theme }) => theme.colors.roseDeep};
+  color: ${({ theme }) => theme.colors.navy};
   font-weight: 600;
   font-size: 14px;
   padding: 12px 22px;
@@ -223,7 +292,8 @@ const Stats = styled.div`
 `;
 
 const Stat = styled.div`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: 16px 8px;
@@ -233,8 +303,8 @@ const Stat = styled.div`
 const StatValue = styled.div`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 22px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.roseDeep};
+  font-weight: 800;
+  color: ${({ theme }) => theme.colors.rose};
 `;
 
 const StatLabel = styled.div`
@@ -254,8 +324,8 @@ const Intro = styled.p`
 const GridTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 20px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.ink};
+  font-weight: 800;
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 14px;
 `;
 
@@ -266,7 +336,8 @@ const Grid = styled.div`
 `;
 
 const Card = styled(Link)`
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: 18px;
@@ -293,7 +364,7 @@ const CardIcon = styled.div`
 const CardLabel = styled.div`
   font-weight: 700;
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 4px;
 `;
 

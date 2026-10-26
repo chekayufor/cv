@@ -74,7 +74,8 @@ const Card = styled.a`
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
+  backdrop-filter: blur(10px);
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 16px 18px;
@@ -109,7 +110,7 @@ const CardLabel = styled.div`
 const CardValue = styled.div`
   font-size: 14.5px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.ink};
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const Note = styled.p`
