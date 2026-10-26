@@ -49,7 +49,7 @@ const Overlay = styled.div`
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => theme.colors.gradientSoft};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,8 +62,8 @@ const CloseButton = styled.button`
   top: 18px;
   right: 18px;
   border: none;
-  background: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+  background: ${({ theme }) => theme.colors.pinkPale};
+  color: ${({ theme }) => theme.colors.roseDeep};
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -89,21 +89,21 @@ const StyledLink = styled(NavLink)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 32px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  color: ${({ theme }) => theme.colors.inkSoft};
   text-decoration: none;
   &.active {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.roseDeep};
   }
 `;
 
 const Footer = styled.div`
   margin-top: 32px;
   a {
-    color: rgba(255, 255, 255, 0.9);
+    color: ${({ theme }) => theme.colors.roseDeep};
     font-weight: 600;
     font-size: 14px;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid ${({ theme }) => theme.colors.roseDeep};
     padding-bottom: 2px;
   }
 `;

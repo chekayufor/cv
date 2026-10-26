@@ -48,7 +48,7 @@ const Bar = styled.div`
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 246, 248, 0.92);
+  background: rgba(253, 249, 244, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
