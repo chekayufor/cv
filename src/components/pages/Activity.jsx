@@ -57,7 +57,9 @@ const Activity = () => {
               return (
                 <Post key={post._id}>
                   {post.img && post.img.length > 0 && (
-                    <Cover src={imgSrc(post.img[0])} alt="" />
+                    <CoverFrame>
+                      <CoverImg src={imgSrc(post.img[0])} alt="" />
+                    </CoverFrame>
                   )}
                   <Body>
                     <Meta>
@@ -163,11 +165,24 @@ const Post = styled.div`
   overflow: hidden;
 `;
 
-const Cover = styled.img`
+const CoverFrame = styled.div`
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: ${({ theme }) => theme.colors.pinkPale};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  @media (min-width: 560px) {
+    aspect-ratio: 1 / 1;
+  }
+`;
+
+const CoverImg = styled.img`
   display: block;
   width: 100%;
-  max-height: 220px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 `;
 
 const Body = styled.div`
