@@ -9,7 +9,7 @@ import Marquee from "../layout/Marquee";
 const quickLinks = navItems.filter(item => item.to !== "/");
 
 const blurbFor = {
-  "/about": "My story, languages & certifications",
+  "/about": "My story and the languages I work in",
   "/experience": "15+ years across analytics & product",
   "/education": "Degrees, bootcamps & courses",
   "/skills": "Tools and skills I work with",

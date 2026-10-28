@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { profile } from "../../data/profile";
 
 const Footer = () => (
@@ -19,6 +20,7 @@ const Footer = () => (
     <Copy>
       &copy; {new Date().getFullYear()} {profile.name}
     </Copy>
+    <AdminLink to="/admin">Admin</AdminLink>
   </Wrap>
 );
 
@@ -79,4 +81,20 @@ const Dot = styled.span`
 const Copy = styled.div`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.inkFaint};
+`;
+
+const AdminLink = styled(Link)`
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.inkFaint};
+  text-decoration: none;
+  border-bottom: 1px dotted ${({ theme }) => theme.colors.inkFaint};
+  &:hover {
+    color: ${({ theme }) => theme.colors.roseDeep};
+    border-color: ${({ theme }) => theme.colors.roseDeep};
+  }
 `;

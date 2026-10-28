@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { PageContainer, ChapterHeader } from "../layout/Page";
-import { about, languages, certifications, publications } from "../../data/profile";
+import { about, languages } from "../../data/profile";
 
 const levelScore = {
   "Native or Bilingual": 5,
@@ -40,20 +40,6 @@ const About = () => (
         </LangCard>
       ))}
     </LangGrid>
-
-    <SectionTitle>Certifications</SectionTitle>
-    <List>
-      {certifications.map(cert => (
-        <ListItem key={cert}>{cert}</ListItem>
-      ))}
-    </List>
-
-    <SectionTitle>Publications</SectionTitle>
-    <List>
-      {publications.map(pub => (
-        <ListItem key={pub}>{pub}</ListItem>
-      ))}
-    </List>
   </PageContainer>
 );
 
@@ -90,7 +76,6 @@ const LangGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin-bottom: 32px;
 `;
 
 const LangCard = styled.div`
@@ -124,28 +109,4 @@ const Dot = styled.span`
 const LangLevel = styled.div`
   font-size: 11px;
   color: ${({ theme }) => theme.colors.inkFaint};
-`;
-
-const List = styled.ul`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.md};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  padding: 6px 18px;
-  margin-bottom: 36px;
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-`;
-
-const ListItem = styled.li`
-  list-style: disc;
-  font-size: 14px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.colors.inkSoft};
-  padding: 10px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  &:last-child {
-    border-bottom: none;
-  }
 `;
