@@ -191,16 +191,30 @@ export const topSkills = [
   "Marketing Automation & CRM",
   "Conversion & UX Optimization",
   "Product & Business Analysis",
-  "Data Visualization & Programming"
+  "Data Visualization & Programming",
+  "Fraud Analytics & Automation",
+  "Data Training & Mentoring",
+  "Full Stack Software Development",
+  "Strategic Leadership & Product Vision"
 ];
 
 export const tools = [
+  "Claude Code",
+  "ChatGPT",
+  "Gemini",
+  "Kimi",
   "GA4",
   "Power BI",
   "Glassbox",
+  "Dynatrace",
+  "FullStory",
+  "Mixpanel",
   "React",
+  "Node.js",
+  "MongoDB",
   "Full Stack Development",
-  "Python"
+  "Python",
+  "Excel (Advanced)"
 ];
 
 export const languages = [
@@ -208,16 +222,6 @@ export const languages = [
   { name: "Ukrainian", level: "Full Professional" },
   { name: "Russian", level: "Native or Bilingual" },
   { name: "Hebrew", level: "Full Professional" }
-];
-
-export const certifications = [
-  "Introduction to Python for Data Science",
-  "Course React Front To Back (2019)",
-  "Digital Marketing Foundations"
-];
-
-export const publications = [
-  "Presentation of my personal website at the SheCodes congress"
 ];
 
 // Fallback posts, used only until something has been published through the

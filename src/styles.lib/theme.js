@@ -13,8 +13,8 @@ const theme = {
     navy: "#1E2B4A",
     navyDeep: "#141E36",
     ink: "#28324A",
-    inkSoft: "rgba(40, 50, 74, 0.68)",
-    inkFaint: "rgba(40, 50, 74, 0.46)",
+    inkSoft: "rgba(30, 38, 58, 0.84)",
+    inkFaint: "rgba(30, 38, 58, 0.62)",
     white: "#FFFFFF",
     gradient: "linear-gradient(135deg, #263B63 0%, #8C3A63 55%, #C2356B 100%)",
     gradientSoft: "linear-gradient(150deg, #E3EAF6 0%, #F2DCE6 55%, #F8DCE4 100%)"
