@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles.lib/theme";
 import GlobalStyles from "../styles.lib/global.styles";
