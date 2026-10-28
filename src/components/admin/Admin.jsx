@@ -374,7 +374,7 @@ const Admin = () => {
               <Btn onClick={save} disabled={busy || !dirty}>
                 Save
               </Btn>
-              <a href="/#/activity" target="_blank" rel="noopener noreferrer">
+              <a href="/activity" target="_blank" rel="noopener noreferrer">
                 Open on the site
               </a>
               <Spacer />
