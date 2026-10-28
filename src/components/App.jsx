@@ -1,18 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Root from './Root';
-import Gallery from './Gallery';
-// import EducationGallery from "./EducationGallery";
+import React, { lazy, Suspense } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "../styles.lib/theme";
+import GlobalStyles from "../styles.lib/global.styles";
+import ScrollToTop from "./layout/ScrollToTop";
+import SiteLayout from "./layout/SiteLayout";
 
-const App = () => {
-  return (
+const Admin = lazy(() => import("./admin/Admin"));
+
+const App = () => (
+  <ThemeProvider theme={theme}>
     <>
+      <GlobalStyles />
       <Router>
-        <Route exact path="/" component={Root} />
-        <Route path="/Gallery" component={Gallery} />
+        <ScrollToTop />
+        <Switch>
+          <Route
+            path="/admin"
+            render={() => (
+              <Suspense fallback={null}>
+                <Admin />
+              </Suspense>
+            )}
+          />
+          <Route component={SiteLayout} />
+        </Switch>
       </Router>
     </>
-  );
-};
+  </ThemeProvider>
+);
 
 export default App;

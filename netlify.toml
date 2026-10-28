@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Functions behind the admin (/api/posts, /api/login, /api/images, /img/*)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Run the whole site together with the functions locally: netlify dev
+[dev]
+  command = "npm start"
+  targetPort = 3000
+  port = 8888
+  framework = "#custom"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

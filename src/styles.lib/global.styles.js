@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -47,31 +46,33 @@ const GlobalStyles = createGlobalStyle`
       height: 100%;
     }
     html {
-      font-size: 10px;
+      scroll-behavior: smooth;
+    }
+    body {
+      overflow-x: hidden;
     }
     body {
       top: 0;
       left: 0;
-      font-size:1.6rem;
-      /* background: ${({ pageBg }) => pageBg || "papayawhip"};
-        background: linear-gradient(
-        to bottom,
-        #ebf2ff 0%,
-        #99c0ff 100%
-      );  */
-      font-family: 'Roboto', sans-serif;
-      font-family:Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-ser;
-      /* border: blue solid 2px; */
-      min-height:120vh;
+      font-size: 15px;
+      font-family: ${({ theme }) => theme.fonts.body};
+      background-color: ${({ theme }) => theme.colors.background};
+      background-image: radial-gradient(rgba(30, 43, 74, 0.09) 1.2px, transparent 1.2px);
+      background-size: 22px 22px;
+      color: ${({ theme }) => theme.colors.ink};
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      
     }
     ul {
       list-style-type: none;
+    }
+    button {
+      font-family: inherit;
     }
 `;
 
