@@ -168,7 +168,7 @@ const Post = styled.div`
 const CoverFrame = styled.div`
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: ${({ theme }) => theme.colors.pinkPale};
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
