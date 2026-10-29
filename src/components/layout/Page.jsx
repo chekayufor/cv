@@ -10,7 +10,6 @@ export const PageContainer = styled.main`
   max-width: ${({ theme }) => theme.maxWidth};
   margin: 0 auto;
   padding: 28px 20px 24px;
-  min-height: calc(100vh - 64px - 160px);
   animation: ${fadeUp} 0.45s ease both;
 `;
 

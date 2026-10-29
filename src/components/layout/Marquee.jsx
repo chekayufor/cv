@@ -2,20 +2,22 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const Marquee = ({ items, tilt = -1.2 }) => (
-  <Band tilt={tilt}>
-    <Track>
-      {[0, 1].map(copy => (
-        <Group key={copy} aria-hidden={copy === 1}>
-          {items.map((item, i) => (
-            <React.Fragment key={i}>
-              <span>{item}</span>
-              <Star>✦</Star>
-            </React.Fragment>
-          ))}
-        </Group>
-      ))}
-    </Track>
-  </Band>
+  <Clip>
+    <Band tilt={tilt}>
+      <Track>
+        {[0, 1].map(copy => (
+          <Group key={copy} aria-hidden={copy === 1}>
+            {items.map((item, i) => (
+              <React.Fragment key={i}>
+                <span>{item}</span>
+                <Star>✦</Star>
+              </React.Fragment>
+            ))}
+          </Group>
+        ))}
+      </Track>
+    </Band>
+  </Clip>
 );
 
 export default Marquee;
@@ -23,6 +25,13 @@ export default Marquee;
 const scroll = keyframes`
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+`;
+
+// Clips the rotated, intentionally-too-wide Band so its tilted bounding box
+// never contributes to the page's scrollable width.
+const Clip = styled.div`
+  overflow: hidden;
+  width: 100%;
 `;
 
 const Band = styled.div`

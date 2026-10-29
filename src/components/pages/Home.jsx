@@ -97,11 +97,11 @@ const Home = () => (
         <Dash /> Explore
       </GridTitle>
       <Grid>
-        {quickLinks.map(item => {
+        {quickLinks.map((item, i) => {
           const Icon = item.icon;
           return (
             <Card key={item.to} to={item.to}>
-              <CardIcon>
+              <CardIcon alt={i % 2 === 1}>
                 <Icon />
               </CardIcon>
               <CardLabel>{item.label}</CardLabel>
@@ -452,8 +452,8 @@ const CardIcon = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: ${({ theme }) => theme.colors.pinkPale};
-  color: ${({ theme }) => theme.colors.roseDeep};
+  background: ${({ theme, alt }) => (alt ? theme.colors.bluePale : theme.colors.pinkPale)};
+  color: ${({ theme, alt }) => (alt ? theme.colors.blue : theme.colors.roseDeep)};
   display: flex;
   align-items: center;
   justify-content: center;
