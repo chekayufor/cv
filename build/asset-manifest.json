@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.4415cf98.js",
+    "main.js": "/static/js/main.288d7bc0.js",
     "static/js/354.00241da8.chunk.js": "/static/js/354.00241da8.chunk.js",
     "static/media/profile-avatar.png": "/static/media/profile-avatar.d8bfb1df368109231ff0.png",
     "static/media/logoNess.jpeg": "/static/media/logoNess.8fc5a272af8eea5f706b.jpeg",
     "static/media/logoPotatoHouse.png": "/static/media/logoPotatoHouse.d06f70c505dcc8f90a15.png",
     "index.html": "/index.html",
-    "main.4415cf98.js.map": "/static/js/main.4415cf98.js.map",
+    "main.288d7bc0.js.map": "/static/js/main.288d7bc0.js.map",
     "354.00241da8.chunk.js.map": "/static/js/354.00241da8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.4415cf98.js"
+    "static/js/main.288d7bc0.js"
   ]
 }

@@ -27,6 +27,7 @@ const Home = () => (
     <Hero>
       <Shape className="one" />
       <Shape className="two" />
+      <Shape className="three" />
       <SideLabel className="left">
         <span>Data</span>
         <span>Strategy</span>
@@ -120,9 +121,13 @@ const Hero = styled.div`
   position: relative;
   overflow: hidden;
   padding: 56px 20px 48px;
+  background-color: #f9f9fd;
   background-image: radial-gradient(rgba(20, 23, 44, 0.08) 1.2px, transparent 1.2px),
-    ${({ theme }) => theme.colors.gradientSoft};
-  background-size: 22px 22px, auto;
+    radial-gradient(circle at 92% 0%, rgba(214, 0, 140, 0.22) 0%, rgba(214, 0, 140, 0) 42%),
+    radial-gradient(circle at 0% 10%, rgba(47, 127, 224, 0.2) 0%, rgba(47, 127, 224, 0) 42%),
+    radial-gradient(circle at 15% 100%, rgba(214, 0, 140, 0.14) 0%, rgba(214, 0, 140, 0) 40%),
+    radial-gradient(circle at 100% 85%, rgba(47, 127, 224, 0.16) 0%, rgba(47, 127, 224, 0) 40%);
+  background-size: 22px 22px, auto, auto, auto, auto;
 `;
 
 const Shape = styled.div`
@@ -141,10 +146,24 @@ const Shape = styled.div`
   &.two {
     width: 110px;
     height: 110px;
-    border: 3px solid rgba(20, 23, 44, 0.12);
+    border: 3px solid rgba(47, 127, 224, 0.3);
     border-radius: 50%;
     bottom: -30px;
     left: -30px;
+  }
+  &.three {
+    width: 70px;
+    height: 70px;
+    background: ${({ theme }) => theme.colors.blue};
+    border-radius: 16px;
+    bottom: 36px;
+    right: 10%;
+    transform: rotate(-12deg);
+    opacity: 0.16;
+    display: none;
+    @media (min-width: 640px) {
+      display: block;
+    }
   }
 `;
 
