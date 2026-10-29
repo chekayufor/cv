@@ -120,9 +120,9 @@ const Hero = styled.div`
   position: relative;
   overflow: hidden;
   padding: 56px 20px 48px;
-  background: ${({ theme }) => theme.colors.navy};
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
-  background-size: 22px 22px;
+  background-image: radial-gradient(rgba(20, 23, 44, 0.08) 1.2px, transparent 1.2px),
+    ${({ theme }) => theme.colors.gradientSoft};
+  background-size: 22px 22px, auto;
 `;
 
 const Shape = styled.div`
@@ -141,7 +141,7 @@ const Shape = styled.div`
   &.two {
     width: 110px;
     height: 110px;
-    border: 3px solid rgba(255, 255, 255, 0.18);
+    border: 3px solid rgba(20, 23, 44, 0.12);
     border-radius: 50%;
     bottom: -30px;
     left: -30px;
@@ -158,7 +158,7 @@ const SideLabel = styled.div`
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: ${({ theme }) => theme.colors.inkFaint};
   @media (min-width: 900px) {
     display: flex;
   }
@@ -232,7 +232,7 @@ const Eyebrow = styled.p`
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.pinkStrong};
+  color: ${({ theme }) => theme.colors.rose};
   margin-bottom: 10px;
 `;
 
@@ -240,8 +240,8 @@ const Line = styled.span`
   display: inline-block;
   width: 20px;
   height: 1px;
-  background: ${({ theme }) => theme.colors.pinkStrong};
-  opacity: 0.7;
+  background: ${({ theme }) => theme.colors.rose};
+  opacity: 0.6;
 `;
 
 const Name = styled.h1`
@@ -254,19 +254,19 @@ const First = styled.span`
   display: block;
   font-size: 24px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.78);
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const Last = styled.span`
   display: block;
   font-size: 50px;
   font-weight: 800;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.rose};
   letter-spacing: -0.01em;
-  text-shadow: 4px 4px 0 ${({ theme }) => theme.colors.rose};
+  text-shadow: 4px 4px 0 rgba(20, 23, 44, 0.14);
   @media (min-width: 640px) {
     font-size: 64px;
-    text-shadow: 5px 5px 0 ${({ theme }) => theme.colors.rose};
+    text-shadow: 5px 5px 0 rgba(20, 23, 44, 0.14);
   }
 `;
 
@@ -293,7 +293,7 @@ const RolePill = styled.span`
 const Tagline = styled.p`
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.72);
+  color: ${({ theme }) => theme.colors.inkSoft};
   max-width: 42ch;
   margin-bottom: 26px;
 `;
@@ -310,39 +310,41 @@ const Primary = styled(Link)`
   align-items: center;
   gap: 8px;
   background: ${({ theme }) => theme.colors.rose};
-  border: 2px solid #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
   color: #ffffff;
   font-weight: 700;
   font-size: 14px;
   padding: 12px 22px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
-  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   svg {
     width: 16px;
     height: 16px;
   }
   &:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.35);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.navy};
   }
 `;
 
 const Secondary = styled(Link)`
   display: inline-flex;
   align-items: center;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  color: #ffffff;
+  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.navy};
+  color: ${({ theme }) => theme.colors.navy};
   font-weight: 700;
   font-size: 14px;
   padding: 12px 22px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
-  transition: background 0.15s ease;
+  box-shadow: ${({ theme }) => theme.shadow.popSm};
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.navy};
   }
 `;
 
