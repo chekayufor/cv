@@ -139,40 +139,40 @@ const Home = () => {
                 $active={activeKey === p.key}
               />
             ))}
+            <Scrim />
+
+            <HeroContent>
+              <Eyebrow>
+                <Line /> 00 · Hello, I'm <Line />
+              </Eyebrow>
+              <Name>
+                <First>{firstName}</First>
+                <Last>{lastName}</Last>
+              </Name>
+              <Roles>
+                {profile.roles.map((role, i) => (
+                  <RolePill key={role} tilt={tilts[i % tilts.length]}>
+                    {role}
+                  </RolePill>
+                ))}
+              </Roles>
+              <Tagline>{profile.tagline}</Tagline>
+              <Ctas>
+                <Primary to="/experience" onMouseEnter={triggerSmile} onMouseLeave={releaseSmile}>
+                  See my experience <ArrowRightIcon />
+                </Primary>
+                <Secondary to="/contact" onMouseEnter={triggerSmile} onMouseLeave={releaseSmile}>
+                  Get in touch
+                </Secondary>
+              </Ctas>
+            </HeroContent>
+
+            <ScrollCue $hidden={scrolled} aria-hidden="true">
+              <ScrollLabel>Scroll</ScrollLabel>
+              <ChevronDownIcon />
+            </ScrollCue>
           </PhotoFrame>
         </PhotoStack>
-        <Scrim />
-
-        <HeroContent>
-          <Eyebrow>
-            <Line /> 00 · Hello, I'm <Line />
-          </Eyebrow>
-          <Name>
-            <First>{firstName}</First>
-            <Last>{lastName}</Last>
-          </Name>
-          <Roles>
-            {profile.roles.map((role, i) => (
-              <RolePill key={role} tilt={tilts[i % tilts.length]}>
-                {role}
-              </RolePill>
-            ))}
-          </Roles>
-          <Tagline>{profile.tagline}</Tagline>
-          <Ctas>
-            <Primary to="/experience" onMouseEnter={triggerSmile} onMouseLeave={releaseSmile}>
-              See my experience <ArrowRightIcon />
-            </Primary>
-            <Secondary to="/contact" onMouseEnter={triggerSmile} onMouseLeave={releaseSmile}>
-              Get in touch
-            </Secondary>
-          </Ctas>
-        </HeroContent>
-
-        <ScrollCue $hidden={scrolled} aria-hidden="true">
-          <ScrollLabel>Scroll</ScrollLabel>
-          <ChevronDownIcon />
-        </ScrollCue>
       </InteractiveHero>
 
       <Marquee
@@ -227,37 +227,53 @@ export default Home;
 const InteractiveHero = styled.div`
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 64px);
-  min-height: 520px;
+  height: calc(72vh - 64px);
+  min-height: 400px;
+  max-height: 620px;
   background: ${({ theme }) => theme.colors.navyDeep};
 
   @supports (height: 100svh) {
-    height: calc(100svh - 64px);
+    height: calc(72svh - 64px);
+  }
+
+  @media (min-width: 760px) {
+    height: calc(82vh - 64px);
+    min-height: 480px;
+    max-height: 680px;
+
+    @supports (height: 100svh) {
+      height: calc(82svh - 64px);
+    }
   }
 `;
 
 // On wide screens a bare "object-fit: cover" would stretch a square
 // close-up portrait across the whole ultra-wide viewport, cropping away
-// almost everything but eyes/forehead. Past 760px we instead constrain the
-// photo to a tall portrait frame (full hero height, capped width) so the
-// whole face-to-hands pose stays in view with the navy background filling
-// the sides; below that, mobile viewports are narrow enough that a plain
-// full-bleed cover already frames the pose well.
+// almost everything but eyes/forehead. We instead keep the photo in a
+// tall portrait frame, inset from the hero's edges so it reads as a
+// photo placed on the page rather than wallpaper filling the screen.
 const PhotoStack = styled.div`
   position: absolute;
   inset: 0;
   display: flex;
   justify-content: center;
+  padding: 14px;
+
+  @media (min-width: 760px) {
+    padding: 24px;
+  }
 `;
 
 const PhotoFrame = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: ${({ theme }) => theme.radii.lg};
   @media (min-width: 760px) {
     width: auto;
     aspect-ratio: 4 / 5;
-    max-width: 100%;
+    max-width: 440px;
   }
 `;
 
@@ -278,11 +294,11 @@ const Scrim = styled.div`
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(13, 15, 31, 0.35) 0%,
+    rgba(13, 15, 31, 0.3) 0%,
     rgba(13, 15, 31, 0.05) 22%,
     rgba(13, 15, 31, 0.1) 45%,
-    rgba(13, 15, 31, 0.82) 78%,
-    rgba(13, 15, 31, 0.96) 100%
+    rgba(13, 15, 31, 0.8) 78%,
+    rgba(13, 15, 31, 0.94) 100%
   );
 `;
 
@@ -291,7 +307,7 @@ const HeroContent = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 28px 20px 96px;
+  padding: 20px 16px 52px;
   max-width: ${({ theme }) => theme.maxWidth};
   margin: 0 auto;
   text-align: center;
@@ -304,45 +320,45 @@ const Eyebrow = styled.p`
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.pinkStrong};
-  margin-bottom: 10px;
+  color: ${({ theme }) => theme.colors.pink};
+  margin-bottom: 8px;
 `;
 
 const Line = styled.span`
   display: inline-block;
   width: 20px;
   height: 1px;
-  background: ${({ theme }) => theme.colors.pinkStrong};
+  background: ${({ theme }) => theme.colors.pink};
   opacity: 0.7;
 `;
 
 const Name = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   line-height: 1.02;
 `;
 
 const First = styled.span`
   display: block;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 600;
   color: #ffffff;
 `;
 
 const Last = styled.span`
   display: block;
-  font-size: 50px;
+  font-size: 38px;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.01em;
-  text-shadow: 4px 4px 0 rgba(214, 0, 140, 0.5);
+  text-shadow: 3px 3px 0 rgba(245, 184, 225, 0.45);
   @media (min-width: 640px) {
-    font-size: 64px;
-    text-shadow: 5px 5px 0 rgba(214, 0, 140, 0.5);
+    font-size: 48px;
+    text-shadow: 4px 4px 0 rgba(245, 184, 225, 0.45);
   }
 `;
 
@@ -350,77 +366,77 @@ const Roles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 14px;
 `;
 
 const RolePill = styled.span`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  padding: 6px 13px;
+  padding: 5px 11px;
   border-radius: ${({ theme }) => theme.radii.pill};
   transform: rotate(${({ tilt }) => tilt}deg);
 `;
 
 const Tagline = styled.p`
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.84);
-  max-width: 42ch;
-  margin-bottom: 26px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 38ch;
+  margin-bottom: 20px;
 `;
 
 const Ctas = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
 `;
 
 const Primary = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: ${({ theme }) => theme.colors.rose};
-  border: 2px solid #ffffff;
+  background: ${({ theme }) => theme.colors.blue};
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   font-weight: 700;
-  font-size: 14px;
-  padding: 12px 22px;
+  font-size: 13px;
+  padding: 10px 18px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 0 rgba(13, 15, 31, 0.4);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
   }
   &:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 0 rgba(13, 15, 31, 0.4);
   }
 `;
 
 const Secondary = styled(Link)`
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(6px);
-  border: 2px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
   color: #ffffff;
   font-weight: 700;
-  font-size: 14px;
-  padding: 12px 22px;
+  font-size: 13px;
+  padding: 10px 18px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   &:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 0 rgba(13, 15, 31, 0.3);
   }
 `;
 
@@ -432,7 +448,7 @@ const bounce = keyframes`
 const ScrollCue = styled.div`
   position: absolute;
   left: 50%;
-  bottom: 28px;
+  bottom: 14px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
