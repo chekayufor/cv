@@ -71,11 +71,10 @@ export const PageTitle = styled.h1`
 const Title = PageTitle;
 
 const Rule = styled.div`
-  width: 46px;
-  height: 4px;
-  background: ${({ theme }) => theme.colors.rose};
-  border-radius: 2px;
-  margin: 10px 0 12px;
+  width: 40px;
+  height: 2px;
+  background: ${({ theme }) => theme.colors.pink};
+  margin: 12px 0 14px;
 `;
 
 export const PageLead = styled.p`

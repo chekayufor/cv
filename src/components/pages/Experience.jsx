@@ -100,15 +100,15 @@ export default Experience;
 const Timeline = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
 `;
 
 const Company = styled.div`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadow.pop};
-  padding: 18px;
+  padding: 28px 0;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 `;
 
 const CompanyHeader = styled.div`

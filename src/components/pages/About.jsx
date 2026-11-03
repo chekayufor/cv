@@ -46,19 +46,16 @@ const About = () => (
 export default About;
 
 const Card = styled.div`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadow.pop};
-  padding: 22px;
-  margin-bottom: 36px;
+  padding: 0 0 8px;
+  margin-bottom: 48px;
 `;
 
 const Paragraph = styled.p`
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
   color: ${({ theme }) => theme.colors.inkSoft};
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -66,24 +63,23 @@ const Paragraph = styled.p`
 
 const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 19px;
-  font-weight: 800;
-  color: ${({ theme }) => theme.colors.navy};
-  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.roseDeep};
+  margin-bottom: 20px;
 `;
 
 const LangGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 20px 28px;
 `;
 
 const LangCard = styled.div`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.md};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  padding: 14px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 const LangName = styled.div`

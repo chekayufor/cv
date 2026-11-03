@@ -105,9 +105,8 @@ const Loading = styled.p`
 
 const Empty = styled.div`
   background: ${({ theme }) => theme.colors.pinkPale};
-  border: 2px dashed ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
-  padding: 22px;
+  padding: 26px 24px;
   margin-bottom: 20px;
 `;
 
@@ -139,15 +138,15 @@ const Topics = styled.div`
 `;
 
 const TopicPill = styled.button`
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  background: ${({ theme, active }) => (active ? theme.colors.rose : "#ffffff")};
-  color: ${({ theme, active }) => (active ? "#ffffff" : theme.colors.navy)};
+  border: none;
+  background: ${({ theme, active }) => (active ? theme.colors.navy : theme.colors.pinkPale)};
+  color: ${({ theme, active }) => (active ? "#ffffff" : theme.colors.roseDeep)};
   border-radius: ${({ theme }) => theme.radii.pill};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  padding: 7px 16px;
+  padding: 8px 16px;
   font-size: 12.5px;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.15s ease;
 `;
 
 const List = styled.div`
@@ -159,9 +158,8 @@ const List = styled.div`
 
 const Post = styled.div`
   background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
   border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadow.pop};
+  box-shadow: ${({ theme }) => theme.shadow.card};
   overflow: hidden;
 `;
 

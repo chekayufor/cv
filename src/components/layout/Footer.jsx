@@ -55,7 +55,6 @@ const Script = styled.div`
   font-size: 22px;
   color: ${({ theme }) => theme.colors.rose};
   margin-bottom: 16px;
-  transform: rotate(-1.5deg);
 `;
 
 const Row = styled.div`

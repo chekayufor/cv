@@ -49,7 +49,7 @@ const Bar = styled.div`
   top: 0;
   z-index: 100;
   background: #ffffff;
-  border-bottom: 3px solid ${({ theme }) => theme.colors.navy};
+  box-shadow: 0 1px 0 ${({ theme }) => theme.colors.border};
 `;
 
 const Inner = styled.div`
@@ -78,15 +78,12 @@ const Monogram = styled.span`
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: ${({ theme }) => theme.colors.rose};
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
+  background: ${({ theme }) => theme.colors.navy};
   color: #ffffff;
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 800;
+  font-weight: 600;
   font-size: 14px;
   flex-shrink: 0;
-  transform: rotate(-4deg);
 `;
 
 const BrandText = styled.div`
@@ -149,22 +146,20 @@ const StyledLink = styled(NavLink)`
 `;
 
 const MenuButton = styled.button`
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  background: #ffffff;
+  border: none;
+  background: ${({ theme }) => theme.colors.pinkPale};
   color: ${({ theme }) => theme.colors.navy};
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: background 0.15s ease;
   &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.navy};
+    background: ${({ theme }) => theme.colors.pink};
   }
   @media (min-width: 860px) {
     display: none;
