@@ -57,8 +57,10 @@ const GlobalStyles = createGlobalStyle`
       font-size: 15px;
       font-family: ${({ theme }) => theme.fonts.body};
       background-color: ${({ theme }) => theme.colors.background};
-      background-image: radial-gradient(rgba(30, 43, 74, 0.09) 1.2px, transparent 1.2px);
-      background-size: 22px 22px;
+      background-image: radial-gradient(circle at 88% -6%, rgba(239, 201, 221, 0.4) 0%, rgba(239, 201, 221, 0) 42%),
+        radial-gradient(circle at -8% 18%, rgba(47, 77, 126, 0.07) 0%, rgba(47, 77, 126, 0) 40%),
+        radial-gradient(circle at 100% 70%, rgba(239, 201, 221, 0.22) 0%, rgba(239, 201, 221, 0) 40%);
+      background-repeat: no-repeat;
       color: ${({ theme }) => theme.colors.ink};
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
