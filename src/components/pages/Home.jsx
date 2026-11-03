@@ -391,11 +391,13 @@ const First = styled.span`
 const Last = styled.span`
   display: block;
   font-size: 44px;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.01em;
+  text-shadow: 3px 3px 0 ${({ theme }) => theme.colors.rose};
   @media (min-width: 640px) {
     font-size: 58px;
+    text-shadow: 4px 4px 0 ${({ theme }) => theme.colors.rose};
   }
 `;
 
@@ -410,6 +412,7 @@ const Roles = styled.div`
 const RolePill = styled.span`
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   color: #ffffff;
   font-size: 11px;
   font-weight: 500;
@@ -438,8 +441,9 @@ const Primary = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #ffffff;
-  color: ${({ theme }) => theme.colors.navy};
+  background: ${({ theme }) => theme.colors.rose};
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #ffffff;
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.02em;
@@ -453,7 +457,7 @@ const Primary = styled(Link)`
   }
   &:hover {
     transform: translateY(-2px);
-    box-shadow: ${({ theme }) => theme.shadow.soft};
+    box-shadow: ${({ theme }) => theme.shadow.popRose};
   }
 `;
 
@@ -462,6 +466,7 @@ const Secondary = styled(Link)`
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   color: #ffffff;
   font-weight: 600;
   font-size: 13px;
