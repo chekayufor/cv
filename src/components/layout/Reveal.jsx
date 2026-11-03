@@ -21,10 +21,22 @@ const Reveal = ({ children, ...rest }) => {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      // Large bottom margin so the reveal fires well before the section
+      // reaches the viewport — a safety margin against full-page capture
+      // tools and fast/instant scrolls that can otherwise skip the
+      // intersection entirely and leave the section stuck invisible.
+      { threshold: 0, rootMargin: "0px 0px 600px 0px" }
     );
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Hard fallback: never leave content permanently hidden even if the
+    // observer never fires for some reason.
+    const fallback = setTimeout(() => setVisible(true), 1800);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
