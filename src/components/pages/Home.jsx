@@ -71,6 +71,14 @@ const Home = () => {
   const dwellTimer = useRef(null);
   const zoneRef = useRef("center");
   const photoFrameRef = useRef(null);
+  const heroRef = useRef(null);
+
+  const scrollPastHero = () => {
+    const node = heroRef.current;
+    if (!node) return;
+    const top = node.getBoundingClientRect().bottom + window.scrollY;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   const clearDwell = () => {
     if (dwellTimer.current) {
@@ -166,7 +174,7 @@ const Home = () => {
 
   return (
     <>
-      <InteractiveHero>
+      <InteractiveHero ref={heroRef}>
         <PhotoStack>
           <PhotoFrame ref={photoFrameRef}>
             <ParallaxLayer>
@@ -206,7 +214,7 @@ const Home = () => {
               </Ctas>
             </HeroContent>
 
-            <ScrollCue $hidden={scrolled} aria-hidden="true">
+            <ScrollCue $hidden={scrolled} onClick={scrollPastHero} aria-label="Scroll to next section">
               <ScrollLabel>Scroll</ScrollLabel>
               <ChevronDownIcon />
             </ScrollCue>
@@ -353,9 +361,8 @@ const Photo = styled.img`
   object-fit: cover;
   object-position: 50% 12%;
   opacity: ${({ $active }) => ($active ? 1 : 0)};
-  transform: scale(${({ $active }) => ($active ? 1 : 1.05)}) scaleX(${({ $mirror }) => ($mirror ? -1 : 1)});
-  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(${({ $active }) => ($active ? 1 : 1.015)}) scaleX(${({ $mirror }) => ($mirror ? -1 : 1)});
+  transition: opacity 1.3s ease-in-out, transform 1.8s ease-in-out;
 `;
 
 const Scrim = styled.div`
@@ -517,7 +524,7 @@ const bounce = keyframes`
   50% { transform: translateY(6px); }
 `;
 
-const ScrollCue = styled.div`
+const ScrollCue = styled.button`
   position: absolute;
   left: 50%;
   bottom: 28px;
@@ -526,10 +533,17 @@ const ScrollCue = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  border: none;
+  background: none;
+  padding: 10px 16px;
+  cursor: pointer;
   color: rgba(255, 255, 255, 0.85);
   opacity: ${({ $hidden }) => ($hidden ? 0 : 1)};
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  pointer-events: ${({ $hidden }) => ($hidden ? "none" : "auto")};
+  transition: opacity 0.4s ease, color 0.2s ease;
+  &:hover {
+    color: #ffffff;
+  }
   svg {
     width: 20px;
     height: 20px;
@@ -730,7 +744,7 @@ const ListItem = styled(Link)`
   &:hover {
     padding-left: 10px;
   }
-  svg:last-child {
+  > svg:last-child {
     width: 16px;
     height: 16px;
     color: ${({ theme }) => theme.colors.inkFaint};
@@ -749,6 +763,9 @@ const ListIcon = styled.div`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  svg {
+    display: block;
+  }
 `;
 
 const ListText = styled.div``;

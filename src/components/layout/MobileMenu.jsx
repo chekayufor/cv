@@ -51,8 +51,8 @@ const Overlay = styled.div`
   inset: 0;
   z-index: 200;
   background: ${({ theme }) => theme.colors.navy};
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1.2px, transparent 1.2px);
-  background-size: 22px 22px;
+  background-image: radial-gradient(circle at 85% 10%, rgba(239, 201, 221, 0.14) 0%, rgba(239, 201, 221, 0) 45%),
+    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 40%);
   display: flex;
   flex-direction: column;
   align-items: center;
