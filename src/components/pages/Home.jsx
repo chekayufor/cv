@@ -70,6 +70,7 @@ const Home = () => {
   const [scrolled, setScrolled] = useState(false);
   const dwellTimer = useRef(null);
   const zoneRef = useRef("center");
+  const photoFrameRef = useRef(null);
 
   const clearDwell = () => {
     if (dwellTimer.current) {
@@ -138,6 +139,20 @@ const Home = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Subtle parallax: the photo drifts slightly slower than the page as you
+  // scroll past the hero, giving it some depth. Written straight to a CSS
+  // variable (not React state) so it stays perfectly smooth at 60fps.
+  useEffect(() => {
+    const onParallax = () => {
+      const node = photoFrameRef.current;
+      if (!node) return;
+      const offset = Math.min(window.scrollY * 0.12, 48);
+      node.style.setProperty("--parallax", `${offset.toFixed(1)}px`);
+    };
+    window.addEventListener("scroll", onParallax, { passive: true });
+    return () => window.removeEventListener("scroll", onParallax);
+  }, []);
+
   const triggerSmile = () => {
     clearDwell();
     zoneRef.current = "smile";
@@ -153,16 +168,18 @@ const Home = () => {
     <>
       <InteractiveHero>
         <PhotoStack>
-          <PhotoFrame>
-            {photos.map(p => (
-              <Photo
-                key={p.key}
-                src={p.src}
-                alt={profile.name}
-                $mirror={p.mirror}
-                $active={activeKey === p.key}
-              />
-            ))}
+          <PhotoFrame ref={photoFrameRef}>
+            <ParallaxLayer>
+              {photos.map(p => (
+                <Photo
+                  key={p.key}
+                  src={p.src}
+                  alt={profile.name}
+                  $mirror={p.mirror}
+                  $active={activeKey === p.key}
+                />
+              ))}
+            </ParallaxLayer>
             <Scrim />
 
             <HeroContent>
@@ -306,8 +323,10 @@ const PhotoStack = styled.div`
 
 const PhotoFrame = styled.div`
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
+  --parallax: 0px;
   @media (min-width: 760px) {
     width: auto;
     aspect-ratio: 4 / 5;
@@ -315,16 +334,28 @@ const PhotoFrame = styled.div`
   }
 `;
 
-const Photo = styled.img`
+// Separate layer for the scroll-linked parallax shift so it can track the
+// scroll position 1:1 (no transition lag) while the crossfade/zoom between
+// gaze photos below animates on its own, eased timing.
+const ParallaxLayer = styled.div`
   position: absolute;
   inset: 0;
+  transform: translateY(var(--parallax, 0px));
+`;
+
+const Photo = styled.img`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -6%;
   width: 100%;
-  height: 100%;
+  height: 112%;
   object-fit: cover;
   object-position: 50% 12%;
   opacity: ${({ $active }) => ($active ? 1 : 0)};
-  transform: ${({ $mirror }) => ($mirror ? "scaleX(-1)" : "none")};
-  transition: opacity 0.6s ease;
+  transform: scale(${({ $active }) => ($active ? 1 : 1.05)}) scaleX(${({ $mirror }) => ($mirror ? -1 : 1)});
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 `;
 
 const Scrim = styled.div`
