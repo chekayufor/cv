@@ -362,7 +362,7 @@ const Photo = styled.img`
   object-position: 50% 12%;
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   transform: scale(${({ $active }) => ($active ? 1 : 1.015)}) scaleX(${({ $mirror }) => ($mirror ? -1 : 1)});
-  transition: opacity 1.3s ease-in-out, transform 1.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out, transform 1.1s ease-in-out;
 `;
 
 const Scrim = styled.div`
