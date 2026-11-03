@@ -74,6 +74,39 @@ const GlobalStyles = createGlobalStyle`
     button {
       font-family: inherit;
     }
+
+    .page-enter {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .page-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 360ms ease, transform 360ms ease;
+    }
+    .page-enter-done {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .page-exit {
+      opacity: 1;
+    }
+    .page-exit-active {
+      opacity: 0;
+      transition: opacity 0ms linear;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-enter,
+      .page-enter-active,
+      .page-enter-done,
+      .page-exit,
+      .page-exit-active {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
 `;
 
 export default GlobalStyles;
