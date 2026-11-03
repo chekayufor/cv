@@ -21,8 +21,6 @@ const blurbFor = {
   "/contact": "Let's talk — reach out"
 };
 
-const tilts = [-2, 1.5, -1, 2, -1.5, 1];
-
 const [firstName, ...restName] = profile.name.split(" ");
 const lastName = restName.join(" ");
 
@@ -150,10 +148,8 @@ const Home = () => {
                 <Last>{lastName}</Last>
               </Name>
               <Roles>
-                {profile.roles.map((role, i) => (
-                  <RolePill key={role} tilt={tilts[i % tilts.length]}>
-                    {role}
-                  </RolePill>
+                {profile.roles.map(role => (
+                  <RolePill key={role}>{role}</RolePill>
                 ))}
               </Roles>
               <Tagline>{profile.tagline}</Tagline>
@@ -187,8 +183,8 @@ const Home = () => {
 
       <Section>
         <Stats>
-          {stats.map((stat, i) => (
-            <Stat key={stat.label} tilt={tilts[i % tilts.length]}>
+          {stats.map(stat => (
+            <Stat key={stat.label}>
               <StatValue>{stat.value}</StatValue>
               <StatLabel>{stat.label}</StatLabel>
             </Stat>
@@ -200,23 +196,24 @@ const Home = () => {
           <QuoteText>{about[0]}</QuoteText>
         </Quote>
 
-        <GridTitle>
-          <Dash /> Explore
-        </GridTitle>
-        <Grid>
-          {quickLinks.map((item, i) => {
+        <GridTitle>Explore</GridTitle>
+        <List>
+          {quickLinks.map(item => {
             const Icon = item.icon;
             return (
-              <Card key={item.to} to={item.to}>
-                <CardIcon alt={i % 2 === 1}>
+              <ListItem key={item.to} to={item.to}>
+                <ListIcon>
                   <Icon />
-                </CardIcon>
-                <CardLabel>{item.label}</CardLabel>
-                <CardBlurb>{blurbFor[item.to]}</CardBlurb>
-              </Card>
+                </ListIcon>
+                <ListText>
+                  <ListLabel>{item.label}</ListLabel>
+                  <ListBlurb>{blurbFor[item.to]}</ListBlurb>
+                </ListText>
+                <ArrowRightIcon />
+              </ListItem>
             );
           })}
-        </Grid>
+        </List>
       </Section>
     </>
   );
@@ -227,53 +224,37 @@ export default Home;
 const InteractiveHero = styled.div`
   position: relative;
   overflow: hidden;
-  height: calc(72vh - 64px);
-  min-height: 400px;
-  max-height: 620px;
+  height: calc(100vh - 64px);
+  min-height: 560px;
   background: ${({ theme }) => theme.colors.navyDeep};
 
   @supports (height: 100svh) {
-    height: calc(72svh - 64px);
-  }
-
-  @media (min-width: 760px) {
-    height: calc(82vh - 64px);
-    min-height: 480px;
-    max-height: 680px;
-
-    @supports (height: 100svh) {
-      height: calc(82svh - 64px);
-    }
+    height: calc(100svh - 64px);
   }
 `;
 
 // On wide screens a bare "object-fit: cover" would stretch a square
 // close-up portrait across the whole ultra-wide viewport, cropping away
-// almost everything but eyes/forehead. We instead keep the photo in a
-// tall portrait frame, inset from the hero's edges so it reads as a
-// photo placed on the page rather than wallpaper filling the screen.
+// almost everything but eyes/forehead. Past 760px we instead constrain the
+// photo to a tall portrait frame (full hero height, capped width) so the
+// whole face-to-hands pose stays in view with the navy background filling
+// the sides; below that, mobile viewports are narrow enough that a plain
+// full-bleed cover already frames the pose well.
 const PhotoStack = styled.div`
   position: absolute;
   inset: 0;
   display: flex;
   justify-content: center;
-  padding: 14px;
-
-  @media (min-width: 760px) {
-    padding: 24px;
-  }
 `;
 
 const PhotoFrame = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  border-radius: ${({ theme }) => theme.radii.lg};
   @media (min-width: 760px) {
     width: auto;
     aspect-ratio: 4 / 5;
-    max-width: 440px;
+    max-width: 100%;
   }
 `;
 
@@ -307,7 +288,7 @@ const HeroContent = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20px 16px 52px;
+  padding: 28px 20px 88px;
   max-width: ${({ theme }) => theme.maxWidth};
   margin: 0 auto;
   text-align: center;
@@ -320,45 +301,44 @@ const Eyebrow = styled.p`
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.pink};
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 `;
 
 const Line = styled.span`
   display: inline-block;
-  width: 20px;
+  width: 24px;
   height: 1px;
   background: ${({ theme }) => theme.colors.pink};
-  opacity: 0.7;
+  opacity: 0.6;
 `;
 
 const Name = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  margin-bottom: 14px;
-  line-height: 1.02;
+  margin-bottom: 20px;
+  line-height: 1.05;
 `;
 
 const First = styled.span`
   display: block;
-  font-size: 19px;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
 `;
 
 const Last = styled.span`
   display: block;
-  font-size: 38px;
-  font-weight: 800;
+  font-size: 44px;
+  font-weight: 600;
   color: #ffffff;
   letter-spacing: -0.01em;
-  text-shadow: 3px 3px 0 rgba(245, 184, 225, 0.45);
   @media (min-width: 640px) {
-    font-size: 48px;
-    text-shadow: 4px 4px 0 rgba(245, 184, 225, 0.45);
+    font-size: 58px;
   }
 `;
 
@@ -367,27 +347,27 @@ const Roles = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 `;
 
 const RolePill = styled.span`
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   font-size: 11px;
-  font-weight: 700;
-  padding: 5px 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 7px 14px;
   border-radius: ${({ theme }) => theme.radii.pill};
-  transform: rotate(${({ tilt }) => tilt}deg);
 `;
 
 const Tagline = styled.p`
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
   max-width: 38ch;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 `;
 
 const Ctas = styled.div`
@@ -401,42 +381,41 @@ const Primary = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: ${({ theme }) => theme.colors.blue};
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  font-weight: 700;
+  background: #ffffff;
+  color: ${({ theme }) => theme.colors.navy};
+  font-weight: 600;
   font-size: 13px;
-  padding: 10px 18px;
+  letter-spacing: 0.02em;
+  padding: 12px 24px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
-  box-shadow: 3px 3px 0 rgba(13, 15, 31, 0.4);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   svg {
     width: 15px;
     height: 15px;
   }
   &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 rgba(13, 15, 31, 0.4);
+    transform: translateY(-2px);
+    box-shadow: ${({ theme }) => theme.shadow.soft};
   }
 `;
 
 const Secondary = styled(Link)`
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 13px;
-  padding: 10px 18px;
+  letter-spacing: 0.02em;
+  padding: 12px 24px;
   border-radius: ${({ theme }) => theme.radii.pill};
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
   &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 3px 3px 0 rgba(13, 15, 31, 0.3);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.16);
   }
 `;
 
@@ -448,7 +427,7 @@ const bounce = keyframes`
 const ScrollCue = styled.div`
   position: absolute;
   left: 50%;
-  bottom: 14px;
+  bottom: 28px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -475,126 +454,126 @@ const ScrollLabel = styled.span`
 const Section = styled.div`
   max-width: ${({ theme }) => theme.maxWidth};
   margin: 0 auto;
-  padding: 40px 20px 24px;
+  padding: 72px 20px 48px;
 `;
 
 const Stats = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-bottom: 36px;
+  gap: 24px;
+  margin-bottom: 56px;
 `;
 
 const Stat = styled.div`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.md};
-  padding: 16px 8px;
+  min-width: 0;
   text-align: center;
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  transform: rotate(${({ tilt }) => tilt}deg);
+  padding: 0 8px;
+  border-left: 1px solid ${({ theme }) => theme.colors.border};
+  &:first-child {
+    border-left: none;
+  }
 `;
 
 const StatValue = styled.div`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 22px;
-  font-weight: 800;
-  color: ${({ theme }) => theme.colors.rose};
+  font-size: 30px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const StatLabel = styled.div`
-  font-size: 11px;
-  color: ${({ theme }) => theme.colors.inkSoft};
-  margin-top: 4px;
+  font-size: 11.5px;
+  color: ${({ theme }) => theme.colors.inkFaint};
+  margin-top: 6px;
   line-height: 1.3;
+  letter-spacing: 0.02em;
 `;
 
 const Quote = styled.div`
   position: relative;
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  padding: 24px 22px 22px;
-  margin-bottom: 40px;
-  box-shadow: ${({ theme }) => theme.shadow.pop};
+  padding: 8px 0 8px 28px;
+  margin-bottom: 64px;
+  border-left: 2px solid ${({ theme }) => theme.colors.pink};
 `;
 
 const QuoteMark = styled.div`
   position: absolute;
-  top: -26px;
-  left: 16px;
+  top: -22px;
+  left: 14px;
   font-family: ${({ theme }) => theme.fonts.script};
-  font-size: 80px;
-  color: ${({ theme }) => theme.colors.rose};
+  font-size: 64px;
+  color: ${({ theme }) => theme.colors.pink};
   line-height: 1;
 `;
 
 const QuoteText = styled.p`
-  font-size: 14px;
-  line-height: 1.65;
-  color: ${({ theme }) => theme.colors.ink};
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: ${({ theme }) => theme.colors.inkSoft};
 `;
 
 const GridTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.roseDeep};
+  margin-bottom: 20px;
+`;
+
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ListItem = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 20px;
-  font-weight: 800;
-  color: ${({ theme }) => theme.colors.navy};
-  margin-bottom: 16px;
-`;
-
-const Dash = styled.span`
-  display: inline-block;
-  width: 26px;
-  height: 10px;
-  background: ${({ theme }) => theme.colors.rose};
-  border-radius: 2px;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-`;
-
-const Card = styled(Link)`
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.md};
-  padding: 18px;
+  gap: 16px;
+  padding: 18px 4px;
   text-decoration: none;
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  transition: padding-left 0.2s ease, opacity 0.2s ease;
+  &:last-child {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  }
   &:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0 ${({ theme }) => theme.colors.navy};
+    padding-left: 10px;
+  }
+  svg:last-child {
+    width: 16px;
+    height: 16px;
+    color: ${({ theme }) => theme.colors.inkFaint};
+    flex-shrink: 0;
+    margin-left: auto;
   }
 `;
 
-const CardIcon = styled.div`
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: ${({ theme, alt }) => (alt ? theme.colors.bluePale : theme.colors.pinkPale)};
-  color: ${({ theme, alt }) => (alt ? theme.colors.blue : theme.colors.roseDeep)};
+const ListIcon = styled.div`
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.colors.pinkPale};
+  color: ${({ theme }) => theme.colors.roseDeep};
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  flex-shrink: 0;
 `;
 
-const CardLabel = styled.div`
-  font-weight: 700;
+const ListText = styled.div``;
+
+const ListLabel = styled.div`
+  font-weight: 600;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.navy};
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 `;
 
-const CardBlurb = styled.div`
+const ListBlurb = styled.div`
   font-size: 12px;
   line-height: 1.4;
-  color: ${({ theme }) => theme.colors.inkSoft};
+  color: ${({ theme }) => theme.colors.inkFaint};
 `;

@@ -66,24 +66,22 @@ export default Contact;
 const Cards = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 `;
 
 const Card = styled.a`
   display: flex;
   align-items: center;
-  gap: 14px;
-  background: #ffffff;
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  padding: 16px 18px;
+  gap: 16px;
+  padding: 18px 4px;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  transition: padding-left 0.2s ease;
+  &:last-child {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  }
   &:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0 ${({ theme }) => theme.colors.navy};
+    padding-left: 10px;
   }
 `;
 
@@ -92,8 +90,8 @@ const IconWrap = styled.div`
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gradient};
-  color: #ffffff;
+  background: ${({ theme }) => theme.colors.pinkPale};
+  color: ${({ theme }) => theme.colors.roseDeep};
   display: flex;
   align-items: center;
   justify-content: center;

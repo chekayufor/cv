@@ -64,8 +64,8 @@ const CloseButton = styled.button`
   position: absolute;
   top: 18px;
   right: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  background: transparent;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   width: 40px;
   height: 40px;
@@ -94,30 +94,27 @@ const Item = styled.li`
 const Num = styled.span`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 13px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.rose};
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.pink};
 `;
 
 const StyledLink = styled(NavLink)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 34px;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   &.active {
     color: #ffffff;
-    text-shadow: 3px 3px 0 ${({ theme }) => theme.colors.rose};
   }
 `;
 
 const Footer = styled.div`
   margin-top: 32px;
   a {
-    color: #ffffff;
-    font-weight: 700;
+    color: ${({ theme }) => theme.colors.pink};
+    font-weight: 600;
     font-size: 14px;
     text-decoration: none;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.rose};
-    padding-bottom: 2px;
   }
 `;

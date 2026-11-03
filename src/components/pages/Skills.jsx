@@ -34,26 +34,26 @@ export default Skills;
 
 const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 19px;
-  font-weight: 800;
-  color: ${({ theme }) => theme.colors.navy};
-  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.roseDeep};
+  margin-bottom: 18px;
 `;
 
 const Pills = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 `;
 
 const Pill = styled.span`
-  background: ${({ featured, theme }) => (featured ? theme.colors.rose : "#ffffff")};
-  border: 2px solid ${({ theme }) => theme.colors.navy};
-  color: ${({ featured, theme }) => (featured ? "#ffffff" : theme.colors.navy)};
+  background: ${({ featured, theme }) => (featured ? theme.colors.navy : theme.colors.pinkPale)};
+  color: ${({ featured, theme }) => (featured ? "#ffffff" : theme.colors.roseDeep)};
   border-radius: ${({ theme }) => theme.radii.pill};
-  box-shadow: ${({ theme }) => theme.shadow.popSm};
-  padding: 10px 18px;
+  padding: 9px 16px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
 `;
