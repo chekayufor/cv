@@ -5,6 +5,7 @@ import { profile, stats, about } from "../../data/profile";
 import { navItems } from "../../data/nav";
 import { ArrowRightIcon, ChevronDownIcon } from "../icons";
 import Marquee from "../layout/Marquee";
+import Reveal from "../layout/Reveal";
 
 import heroCenter from "../../images/hero/hero-center.webp";
 import heroSmile from "../../images/hero/hero-smile.webp";
@@ -38,6 +39,31 @@ const photos = [
 ];
 
 const cycleOrder = ["center", "left", "smile", "right"];
+
+// A generalized, composite walk-through of how a project actually moves
+// through her hands — not a named client case, just the method itself.
+const process = [
+  {
+    step: "01",
+    title: "Map the journey",
+    text: "I start by walking in the user's shoes — tracing every touchpoint from first click to final action in GA4, Glassbox and Power BI, until I can see exactly where attention goes."
+  },
+  {
+    step: "02",
+    title: "Find the friction",
+    text: "Behind every drop-off is a reason. I dig into the data to pinpoint exactly where people hesitate, get confused or give up — turning noisy numbers into a clear diagnosis."
+  },
+  {
+    step: "03",
+    title: "Design the fix",
+    text: "A diagnosis only matters with a plan behind it. I translate findings into concrete UX, product and content recommendations that teams can actually ship."
+  },
+  {
+    step: "04",
+    title: "Prove the impact",
+    text: "The work isn't done until the numbers move. I track the result after launch — conversion, retention, satisfaction — and feed it back into the next cycle."
+  }
+];
 
 const Home = () => {
   const [activeKey, setActiveKey] = useState("center");
@@ -180,6 +206,37 @@ const Home = () => {
           "Banking & Insurance"
         ]}
       />
+
+      <Statement>
+        <Reveal>
+          <StatementText>
+            Behind every click, <StatementAccent>there's intent.</StatementAccent>
+          </StatementText>
+          <StatementSub>
+            My work starts where the data gets interesting — the moment a user hesitates,
+            drops off or comes back for more.
+          </StatementSub>
+        </Reveal>
+      </Statement>
+
+      <Process>
+        <Reveal>
+          <ProcessEyebrow>How I work</ProcessEyebrow>
+        </Reveal>
+        <ProcessList>
+          {process.map(item => (
+            <Reveal key={item.step}>
+              <ProcessStep>
+                <ProcessNum>{item.step}</ProcessNum>
+                <ProcessBody>
+                  <ProcessTitle>{item.title}</ProcessTitle>
+                  <ProcessText>{item.text}</ProcessText>
+                </ProcessBody>
+              </ProcessStep>
+            </Reveal>
+          ))}
+        </ProcessList>
+      </Process>
 
       <Section>
         <Stats>
@@ -449,6 +506,101 @@ const ScrollLabel = styled.span`
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+`;
+
+const Statement = styled.div`
+  background: ${({ theme }) => theme.colors.navy};
+  padding: 88px 20px;
+  text-align: center;
+`;
+
+const StatementText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ffffff;
+  max-width: 18ch;
+  margin: 0 auto 18px;
+  @media (min-width: 640px) {
+    font-size: 36px;
+  }
+`;
+
+const StatementAccent = styled.span`
+  display: block;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.pink};
+`;
+
+const StatementSub = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 42ch;
+  margin: 0 auto;
+`;
+
+const Process = styled.div`
+  max-width: ${({ theme }) => theme.maxWidth};
+  margin: 0 auto;
+  padding: 72px 20px 24px;
+`;
+
+const ProcessEyebrow = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.roseDeep};
+  text-align: center;
+  margin-bottom: 48px;
+`;
+
+const ProcessList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+`;
+
+const ProcessStep = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+`;
+
+const ProcessNum = styled.div`
+  flex-shrink: 0;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px ${({ theme }) => theme.colors.pink};
+  @media (min-width: 640px) {
+    font-size: 52px;
+  }
+`;
+
+const ProcessBody = styled.div`
+  padding-top: 4px;
+`;
+
+const ProcessTitle = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 19px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.navy};
+  margin-bottom: 8px;
+`;
+
+const ProcessText = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: ${({ theme }) => theme.colors.inkSoft};
+  max-width: 52ch;
 `;
 
 const Section = styled.div`
